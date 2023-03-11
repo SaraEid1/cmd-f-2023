@@ -8,12 +8,10 @@ import "./App.css";
 class App extends React.Component {
   render() {
     return (
-      <Router>
         <Routes>
-          <Route path="/calendar" element={<Calendar />} />
+          {/* <Route path="/calendar" element={<Calendar />} /> */}
           <Route path="/" element={<Dashboard />} />
         </Routes>
-      </Router>
     );
   }
 }
