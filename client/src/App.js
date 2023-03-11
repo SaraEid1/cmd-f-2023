@@ -1,25 +1,19 @@
 import React from "react";
-
+import { Route, Routes } from "react-router-dom";
 import Calendar from "./components/Calender";
-
+import Dashboard from "./components/Dashboard";
+import { BrowserRouter as Router } from 'react-router-dom';
 import "./App.css";
 
 class App extends React.Component {
   render() {
     return (
-      <div className="App">
-        <header>
-          <div id="logo">
-            <span className="icon">date_range</span>
-            <span>
-              <b>calendar</b>
-            </span>
-          </div>
-        </header>
-        <main>
-          <Calendar />
-        </main>
-      </div>
+      <Router>
+        <Routes>
+          <Route path="/calendar" element={<Calendar />} />
+          <Route path="/" element={<Dashboard />} />
+        </Routes>
+      </Router>
     );
   }
 }
