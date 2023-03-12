@@ -68,14 +68,6 @@ class Calendar extends React.Component {
 
     return <div className="days row">{days}</div>;
   }
-<<<<<<< HEAD
-
-  renderPeriod(){
-    
-  }
-
-=======
->>>>>>> main
   renderCells() {
     console.log("state", this.state.startDates);
     console.log (this.state.ovulday)
