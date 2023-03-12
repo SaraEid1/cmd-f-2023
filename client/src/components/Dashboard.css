@@ -8,7 +8,7 @@
     position: absolute;
     width: 164px;
     height: 36px;
-    left: 336px;
+    left: 415px;
     top: 60px;
     
     font-family: 'Inter';
@@ -38,20 +38,57 @@ color: #FFFFFF;
 
   #circle{
     position: absolute;
-width: 107.48px;
-height: 107.48px;
-left: 60.95px;
-top: 134.46px;
-
-background: #D9D9D9;
+    left: 31.76%;
+    right: 31.93%;
+    top: 14.11%;
+    bottom: 74.9%;
+    border-radius: 60%;
+    background: #D9D9D9;
   }
 
   #nav{
+
     position: absolute;
-width: 112px;
-height: 463px;
-left: 74.65px;
-top: 336.77px;
+    left: 33.1%;
+    right: 34.8%;
+    top: 34.46%;
+    bottom: 33.94%;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 271.02%;
+    /* or 49px */
+    
+    
+    color: #FFFFFF;
+  }
+  
+  .name{
+    position: absolute;
+    left: 33.45%;
+    right: 33.78%;
+    top: 24%;
+    bottom: 68.1%;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 21.0736px;
+    line-height: 271.02%;
+    /* or 57px */
+    
+    
+    color: #FFFFFF;
+  }
+
+  .logout{
+    position: absolute;
+left: 33.22%;
+right: 42.45%;
+top: 92.05%;
+bottom: 2.12%;
 
 font-family: 'Inter';
 font-style: normal;
@@ -63,13 +100,47 @@ line-height: 271.02%;
 
 color: #FFFFFF;
   }
-  
+
+  .icons1{
+    position: absolute;
+left: 21.06%;
+right: 71.51%;
+top: 92.05%;
+bottom: 2.12%;
+
+font-family: 'Font Awesome 6 Free';
+font-style: normal;
+font-weight: 900;
+font-size: 21.0736px;
+line-height: 271.02%;
+/* or 57px */
+
+
+color: #FFFFFF;
+  }
   .content {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     width: 100%;
+  }
+
+  .logo{
+    position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0.97%;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 900;
+font-size: 36.6872px;
+line-height: 44px;
+
+color: #FFFFFF;
+
   }
   
   .box1 {
@@ -81,7 +152,12 @@ color: #FFFFFF;
     
     background: #000000;
     border-radius: 0px 21.0736px 21.0736px 0px;
+    display: flex;
+  justify-content: center;
+  align-items: center;
   }
+
+  
 
   .box2 {
     position: absolute;
@@ -163,5 +239,24 @@ color: #FFFFFF;
   
   .box p {
     margin-bottom: 0;
+  }
+
+  .icons{
+    position: absolute;
+    left: 19.93%;
+    right: 72.97%;
+    top: 34.36%;
+    bottom: 40.7%;
+    
+    font-family: 'Font Awesome 6 Free';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 271.02%;
+    /* or 49px */
+    
+    
+    color: #FFFFFF;
+
   }
   
