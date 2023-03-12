@@ -14,7 +14,46 @@ import navGuy from "./navbarGuy.svg";
 import profile from "./profile.svg";
 
 class Dashboard extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: null,
+      startDates: [],
+      ovulday: "0",
+      
+      displayTextMood: null,
+      predictedPeriod: "",
+      periodLength: "0",
+      cycleLength: "0",
+      daysSinceLastPeriod: "0",
+      daysUntilNextPeriod: "0",
+      daysinCycle: "0"
+    };
+  }
+
+  async componentDidMount() {
+    try {
+      const response = await fetch('http://localhost:1000/data');
+      const json = await response.json();
+
+      const periods = json.Period;
+      const cycleLength = json.cycleLength;
+      const periodLength = json.periodLength;
+      const daysSinceLastPeriod= json.daysSinceLastPeriod;
+      const daysUntilNextPeriod= json.daysUntilNextPeriod;
+      const daysinCycle= json.daysinCycle;
+      
+      const ovulday = (cycleLength / 2).toString();;
+      const startDates = Object.values(periods).map(period => period.startDate);
+      console.log(startDates)
+      this.setState({ data: json, periods, startDates, ovulday, cycleLength, periodLength,daysSinceLastPeriod, daysUntilNextPeriod, daysinCycle});
+    } catch (error) {
+      console.error(error);
+    }
+  }
   render() {
+   // const { cycleLength } = this.state;
+
     return (
       <div className="dashboard">
         <div className="mainContent">
@@ -28,21 +67,23 @@ class Dashboard extends React.Component {
           </div>
           <div className="side-stacked">
             <div className="box3">
-              <p></p>
+            <div>{this.state.daysinCycle}</div> <div>days</div>
             </div>
             <div className="top-stacked">
               <div className="box4">
-                <p></p>
+              <div>{this.state.daysUntilNextPeriod}</div> <div>days</div>
               </div>
               <div className="box5">
-                <p></p>
+              <div>{this.state.daysSinceLastPeriod}</div> <div>days</div>
+
               </div>
               <div className = "side-stacked">
               <div className="box7">
+              <div>{this.state.periodLength}</div> <div>days</div>
                 <p></p>
               </div>
               <div className="box8">
-                <p></p>
+              <div>{this.state.cycleLength}</div> <div>days</div>
               </div>
               </div>
             </div>

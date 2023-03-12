@@ -20,7 +20,10 @@ class Calendar extends React.Component {
       startDates: [],
       ovulday: "0",
       displayText: null,
-      displayTextMood: null
+      displayTextMood: null,
+      predictedPeriod: "",
+      periodLength: "0",
+      cycleLength: ""
     };
   }
   async componentDidMount() {

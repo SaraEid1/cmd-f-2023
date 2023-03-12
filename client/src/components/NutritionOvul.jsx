@@ -26,7 +26,7 @@ class Dashboard extends React.Component {
             <div className="header">Nutrition </div>
             <div className="date">Saturday March 11th, 2023 </div>
           </div>
-          <div className = "nutriText"> Your menstrual phase is time to rest and replenish. Your body is undergoing a controlled inflammatory response to shed your uterine lining, so nourishing yourself with nutrient-dense, anti-inflammatory and iron-replenishing foods is important.</div>
+          <div className = "nutriText">  Over the ovulation period, your oestrogen levels will rise and as a result, your body will need whole foods, rich with nutrients and antioxidants. Vitamin D and zinc become essential during this time, as these nutrients are crucial for reproductive health and can help regulate the menstrual cycle.</div>
           <Link to="https://www.twopeasandtheirpod.com/mediterranean-three-bean-quinoa-salad/" > <img src={lemonChicken} className="recipe" /> </Link>
           
           <img src={avocado} className="recipe" />
