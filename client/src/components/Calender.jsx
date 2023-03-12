@@ -20,8 +20,8 @@ class Calendar extends React.Component {
       data: null,
       startDates: [],
       ovulday: "0",
-      displayText: null,
-      displayTextMood: null,
+      displayText: "Omega-3 Fatty Acids and Fibre",
+      displayTextMood: "increased energy levels, more focus, slight increase in body temperature",
       predictedPeriod: "",
       periodLength: "0",
       cycleLength: ""
@@ -159,7 +159,7 @@ class Calendar extends React.Component {
       this.setState({ displayTextMood: " cramps, bloating, tender breasts, mood swings, irritability, headaches, tiredness, lower back pain" });
     } else if (targetClassList.contains("green")) {
       this.setState({ displayText: "Vitamin D and Zinc" });
-      this.setState({ displayTextMood: " " });
+      this.setState({ displayTextMood: " Mood changes, such as irritability or depression, fatigue or lethargy" });
     } else {
       this.setState({ displayText: "" }); // clear the text if neither condition is met
       this.setState({ displayTextMood: "" });
