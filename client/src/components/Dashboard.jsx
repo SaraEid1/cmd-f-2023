@@ -61,7 +61,7 @@ class Dashboard extends React.Component {
         <div className="mainContent">
           <div className="topMenu" style={{ display: 'inline-flex', alignItems: 'center' }}>
             <div className="header">Dashboard </div>
-            <div className="date">Saturday March 11th, 2023 </div>
+            <div className="date">Sunday March 12th, 2023 </div>
           </div>
           <div className="box2">
             <img src={dashboardGuy} className="dashboardguy" />

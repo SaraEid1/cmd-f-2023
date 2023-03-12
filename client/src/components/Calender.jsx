@@ -219,7 +219,7 @@ class Calendar extends React.Component {
         <div className="mainContent">
           <div className="topMenu" style={{ display: 'inline-flex', alignItems: 'center' }}>
             <div className="header2">Calendar </div>
-            <div className="date">Saturday March 11th, 2023 </div>
+            <div className="date">Sunday March 12th, 2023 </div>
           </div>
           <div className="right">
             {this.renderHeader()}
