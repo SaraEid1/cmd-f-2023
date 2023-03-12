@@ -378,3 +378,50 @@ h2 {
   background: #f5f5f5;
   z-index: 1;
 }
+
+.nutritiontext0 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 21.0736px;
+  color: #ffffff;
+  padding-left: 7px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.nutritiontext {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 14.0736px;
+  color: #ffffff;
+  padding-left: 7px;
+}
+
+.nutritiontextreg {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14.0736px;
+  color: #ffffff;
+  padding-left: 7px;
+}
+
+.symptomstext0 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 21.0736px;
+  color: #ffffff;
+  padding-left: 7px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.symptomstext {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 14.0736px;
+  color: #ffffff;
+  padding-left: 7px;
+}
