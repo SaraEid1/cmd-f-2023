@@ -59,7 +59,7 @@ class Map extends Component {
                 style={{
                     // position:'absolute',
                     width: '100%',
-                    height: '800px',
+                    height: '300px',
                     // left: '10%',
                     // rightMargin: '330.69px',
                     borderRight: '20%',
