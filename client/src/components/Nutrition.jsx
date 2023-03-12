@@ -24,7 +24,7 @@ class Dashboard extends React.Component {
         <div className="mainContent">
           <div className="topMenu" style={{ display: 'inline-flex', alignItems: 'center' }}>
             <div className="header">Nutrition </div>
-            <div className="date">Saturday March 11th, 2023 </div>
+            <div className="date">Sunday March 12th, 2023 </div>
           </div>
           <div className="nutriText"> Your menstrual phase is time to rest and replenish. Your body is undergoing a controlled inflammatory response to shed your uterine lining, so nourishing yourself with nutrient-dense, anti-inflammatory and iron-replenishing foods is important.</div>
           <div className="nutriText">Your menstrual phase is time to rest and replenish. Your body is undergoing a controlled inflammatory response to shed your uterine lining, so nourishing yourself with nutrient-dense, anti-inflammatory and iron-replenishing foods is important.
