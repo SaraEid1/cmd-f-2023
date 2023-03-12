@@ -26,12 +26,12 @@ class Dashboard extends React.Component {
             <div className="header">Nutrition </div>
             <div className="date">Saturday March 11th, 2023 </div>
           </div>
-          <div className = "nutriText"> njfkl dhfgjshdf hsjfghlsdfg ehrjk f</div>
+          <div className = "nutriText">Your menstrual phase is time to rest and replenish. Your body is undergoing a controlled inflammatory response to shed your uterine lining, so nourishing yourself with nutrient-dense, anti-inflammatory and iron-replenishing foods is important. 
+</div>
           <Link to="https://www.twopeasandtheirpod.com/mediterranean-three-bean-quinoa-salad/" > <img src={lemonChicken} className="recipe" /> </Link>
-          
-          <img src={avocado} className="recipe" />
-          <img src={steak} className="recipe" />
-          <img src={quinoa} className="recipe" />
+          <Link to="https://www.seriouseats.com/avocado-toast-smoked-salmon-goat-cheese-capers" > <img src={avocado} className="recipe" /> </Link>
+          <Link to="https://iowagirleats.com/steak-and-sweet-potato-bowls-with-avocado-cilantro-drizzle/" > <img src={steak} className="recipe" /> </Link>
+          <Link to="https://www.twopeasandtheirpod.com/mediterranean-three-bean-quinoa-salad/" > <img src={quinoa} className="recipe" /> </Link>
         </div>
         <div className="content">
           <div className="box1">
@@ -61,7 +61,7 @@ class Dashboard extends React.Component {
           
           <div className="box6">
             <p className="overview">Today's Overview</p>
-            <div className = "nutrition"></div>
+            <Link to="/nutrition"> <div className="nutrition"></div> </Link>
             <div className = "mood"></div>
             {/* <img src={mood} className="mood" />
             <p className="moodtext"> Mood </p>
