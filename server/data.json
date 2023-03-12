@@ -1,1 +1,100 @@
-{"Period":{"Wed, 01 Mar 2023 08:00:00 GMT":{"startDate":"Wed, 01 Mar 2023 08:00:00 GMT","endDate":"Wed, 01 Mar 2023 08:00:00 GMT","flow":3},"Thu, 02 Mar 2023 08:00:00 GMT":{"startDate":"Thu, 02 Mar 2023 08:00:00 GMT","endDate":"Thu, 02 Mar 2023 08:00:00 GMT","flow":4},"Sun, 05 Mar 2023 08:00:00 GMT":{"startDate":"Sun, 05 Mar 2023 08:00:00 GMT","endDate":"Sun, 05 Mar 2023 08:00:00 GMT","flow":3},"Mon, 06 Mar 2023 08:00:00 GMT":{"startDate":"Mon, 06 Mar 2023 08:00:00 GMT","endDate":"Mon, 06 Mar 2023 08:00:00 GMT","flow":3},"Tue, 07 Mar 2023 08:00:00 GMT":{"startDate":"Tue, 07 Mar 2023 08:00:00 GMT","endDate":"Tue, 07 Mar 2023 08:00:00 GMT","flow":3},"Wed, 08 Mar 2023 08:00:00 GMT":{"startDate":"Wed, 08 Mar 2023 08:00:00 GMT","endDate":"Wed, 08 Mar 2023 08:00:00 GMT","flow":3},"Thu, 09 Mar 2023 08:00:00 GMT":{"startDate":"Thu, 09 Mar 2023 08:00:00 GMT","endDate":"Thu, 09 Mar 2023 08:00:00 GMT","flow":3},"Fri, 10 Mar 2023 08:00:00 GMT":{"startDate":"Fri, 10 Mar 2023 08:00:00 GMT","endDate":"Fri, 10 Mar 2023 08:00:00 GMT","flow":3},"Sat, 11 Mar 2023 08:00:00 GMT":{"startDate":"Sat, 11 Mar 2023 08:00:00 GMT","endDate":"Sat, 11 Mar 2023 08:00:00 GMT","flow":3}},"PredictedPeriod":{"Thu, 09 Mar 2023 08:00:00 GMT":{"startDate":"Thu, 09 Mar 2023 08:00:00 GMT","endDate":"Thu, 09 Mar 2023 08:00:00 GMT"},"Fri, 10 Mar 2023 08:00:00 GMT":{"startDate":"Fri, 10 Mar 2023 08:00:00 GMT","endDate":"Fri, 10 Mar 2023 08:00:00 GMT"},"Sat, 11 Mar 2023 08:00:00 GMT":{"startDate":"Sat, 11 Mar 2023 08:00:00 GMT","endDate":"Sat, 11 Mar 2023 08:00:00 GMT"},"Sun, 12 Mar 2023 08:00:00 GMT":{"startDate":"Sun, 12 Mar 2023 08:00:00 GMT","endDate":"Sun, 12 Mar 2023 08:00:00 GMT"},"Mon, 13 Mar 2023 08:00:00 GMT":{"startDate":"Mon, 13 Mar 2023 08:00:00 GMT","endDate":"Mon, 13 Mar 2023 08:00:00 GMT"}},"cycleLength":4,"periodLength":5,"lastPeriodStart":"Sun, 05 Mar 2023 08:00:00 GMT","daysinCycle":6,"daysSinceLastPeriod":0,"daysUntilNextPeriod":-3}
+{
+    "Period": {
+        "Wed, 01 Feb 2023 08:00:00 GMT": {
+            "startDate": "Wed, 01 Feb 2023 08:00:00 GMT",
+            "endDate": "Wed, 01 Feb 2023 08:00:00 GMT",
+            "flow": 3
+        },
+        "Thu, 02 Feb 2023 08:00:00 GMT": {
+            "startDate": "Thu, 02 Feb 2023 08:00:00 GMT",
+            "endDate": "Thu, 02 Feb 2023 08:00:00 GMT",
+            "flow": 3
+        },
+        "Fri, 03 Feb 2023 08:00:00 GMT": {
+            "startDate": "Fri, 03 Feb 2023 08:00:00 GMT",
+            "endDate": "Fri, 03 Feb 2023 08:00:00 GMT",
+            "flow": 2
+        },
+        "Sat, 04 Feb 2023 08:00:00 GMT": {
+            "startDate": "Sat, 04 Feb 2023 08:00:00 GMT",
+            "endDate": "Sat, 04 Feb 2023 08:00:00 GMT",
+            "flow": 2
+        },
+        "Sun, 05 Feb 2023 08:00:00 GMT": {
+            "startDate": "Sun, 05 Feb 2023 08:00:00 GMT",
+            "endDate": "Sun, 05 Feb 2023 08:00:00 GMT",
+            "flow": 3
+        },
+        "Fri, 03 Mar 2023 08:00:00 GMT": {
+            "startDate": "Fri, 03 Mar 2023 08:00:00 GMT",
+            "endDate": "Fri, 03 Mar 2023 08:00:00 GMT",
+            "flow": 4
+        },
+        "Sat, 04 Mar 2023 08:00:00 GMT": {
+            "startDate": "Sat, 04 Mar 2023 08:00:00 GMT",
+            "endDate": "Sat, 04 Mar 2023 08:00:00 GMT",
+            "flow": 3
+        },
+        "Sun, 05 Mar 2023 08:00:00 GMT": {
+            "startDate": "Sun, 05 Mar 2023 08:00:00 GMT",
+            "endDate": "Sun, 05 Mar 2023 08:00:00 GMT",
+            "flow": 2
+        },
+        "Mon, 06 Mar 2023 08:00:00 GMT": {
+            "startDate": "Mon, 06 Mar 2023 08:00:00 GMT",
+            "endDate": "Mon, 06 Mar 2023 08:00:00 GMT",
+            "flow": 2
+        },
+        "Tue, 07 Mar 2023 08:00:00 GMT": {
+            "startDate": "Tue, 07 Mar 2023 08:00:00 GMT",
+            "endDate": "Tue, 07 Mar 2023 08:00:00 GMT",
+            "flow": 2
+        }
+    },
+    "Phases": {
+        "Menstrual": {
+            "startDate": "Fri, 03 Mar 2023 08:00:00 GMT",
+            "endDate": "Tue, 07 Mar 2023 08:00:00 GMT"
+        },
+        "Follicular": {
+            "startDate": "Wed, 08 Mar 2023 08:00:00 GMT",
+            "endDate": "Wed, 15 Mar 2023 07:00:00 GMT"
+        },
+        "Ovular": {
+            "startDate": "Thu, 16 Mar 2023 07:00:00 GMT",
+            "endDate": "Sun, 19 Mar 2023 07:00:00 GMT"
+        },
+        "Luteal": {
+            "startDate": "Mon, 20 Mar 2023 07:00:00 GMT",
+            "endDate": "Sat, 01 Apr 2023 07:00:00 GMT"
+        }
+    },
+    "PredictedPeriod": {
+        "Sun, 02 Apr 2023 08:00:00 GMT": {
+            "startDate": "Sun, 02 Apr 2023 08:00:00 GMT",
+            "endDate": "Sun, 02 Apr 2023 08:00:00 GMT"
+        },
+        "Mon, 03 Apr 2023 08:00:00 GMT": {
+            "startDate": "Mon, 03 Apr 2023 08:00:00 GMT",
+            "endDate": "Mon, 03 Apr 2023 08:00:00 GMT"
+        },
+        "Tue, 04 Apr 2023 08:00:00 GMT": {
+            "startDate": "Tue, 04 Apr 2023 08:00:00 GMT",
+            "endDate": "Tue, 04 Apr 2023 08:00:00 GMT"
+        },
+        "Wed, 05 Apr 2023 08:00:00 GMT": {
+            "startDate": "Wed, 05 Apr 2023 08:00:00 GMT",
+            "endDate": "Wed, 05 Apr 2023 08:00:00 GMT"
+        },
+        "Thu, 06 Apr 2023 08:00:00 GMT": {
+            "startDate": "Thu, 06 Apr 2023 08:00:00 GMT",
+            "endDate": "Thu, 06 Apr 2023 08:00:00 GMT"
+        }
+    },
+    "cycleLength": 30,
+    "periodLength": 5,
+    "lastPeriodStart": "Fri, 03 Mar 2023 08:00:00 GMT",
+    "daysinCycle": 9,
+    "daysSinceLastPeriod": 5,
+    "daysUntilNextPeriod": 20
+}
