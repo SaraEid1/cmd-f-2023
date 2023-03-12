@@ -1,12 +1,10 @@
 .calendar {
   display: flex;
   border: none !important;
-  height: 100vh;
 }
 .left {
   position: absolute;
   width: 269px;
-  height: 960px;
   left: 2px;
   top: 4px;
 
@@ -69,9 +67,14 @@
 
 .right {
   width: 100%;
-  height: 900px;
   top: 200px;
   float: left;
+  padding: 20px 50px;
+  margin-bottom: 100px;
+  background: rgba(255, 255, 255, 0.4);
+  border: 3px solid #ffffff;
+  border-radius: 20px;
+  border: 2px white solid;
 }
 
 .name1 {
