@@ -11,15 +11,14 @@ import mood from "./moodWidget.svg";
 import nutrition from "./nutritionWidget.svg";
 import symptoms from "./symptomsWidget.svg";
 import navGuy from "./navbarGuy.svg";
-import profile from "./profile.svg";
 
 class Dashboard extends React.Component {
   render() {
     return (
-      <div className="dashboard">
+      <div className="nutritionMain">
         <div className="mainContent">
           <div className="topMenu" style={{ display: 'inline-flex', alignItems: 'center' }}>
-            <div className="header">Dashboard </div>
+            <div className="header">Nutrition </div>
             <div className="date">Saturday March 11th, 2023 </div>
           </div>
 
@@ -27,29 +26,36 @@ class Dashboard extends React.Component {
         <div className="content">
           <div className="box1">
             <img src={dotLogoWhite} className="logo" />
-            <img src={profile} id="circle" />
+            <h2>dot</h2>
+            <div id="circle">  </div>
             <p className="name"> Jane Doe </p>
+
             <p id="nav">
-              <div className="selected">
-                <span style={{ display: 'inline-flex', alignItems: 'center' }}>
-                  <FaHome style={{ marginRight: '20px' }} />
-                  <Link to="/dashboard" > Dashboard </Link>
-                </span>
-              </div>
+              <span style={{ display: 'inline-flex', alignItems: 'center', paddingLeft: '20px' }}>
+                <FaHome style={{ marginRight: '20px' }} />
+                <Link to="/dashboard" > Dashboard </Link>
+              </span>
               <span style={{ display: 'inline-flex', alignItems: 'center', paddingLeft: '20px' }}>
                 <FaCalendarAlt style={{ marginRight: '20px' }} />
                 <Link to="/calender"> Calendar </Link>
               </span>
-
-              <span style={{ display: 'inline-flex', alignItems: 'center', paddingLeft: '20px' }}>
-                <FaUtensils style={{ marginRight: '20px' }} />
-                <Link to="/nutrition"> Nutrition </Link>
-              </span>
+              <div className="selected">
+                <span style={{ display: 'inline-flex', alignItems: 'center' }}>
+                  <FaUtensils style={{ marginRight: '20px' }} />
+                  <Link to="/nutrition"> Nutrition </Link>
+                </span>
+              </div>
             </p>
+            {/* <p className="icons">
+              <FaHome />
+              <FaCalendarAlt />
+              <FaUtensils />
+              <FaMapMarkerAlt />
+            </p> */}
             <img src={navGuy} className="navguy" />
           </div>
           <div className="box2">
-            {/* <img src={dashboardGuy} className="dashboardguy" /> */}
+            <img src={dashboardGuy} className="dashboardguy" />
             <p></p>
           </div>
           <div className="box3">

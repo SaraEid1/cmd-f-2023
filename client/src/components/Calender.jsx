@@ -4,6 +4,10 @@ import { FaHome, FaCalendarAlt, FaUtensils, FaMapMarkerAlt, FaSignOutAlt } from 
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import './Calender.css';
 import dotLogoWhite from './dotLogoWhiteSVG.svg';
+import navGuy from "./navbarGuy.svg";
+import mood from "./moodWidget.svg";
+import nutrition from "./nutritionWidget.svg";
+import symptoms from "./symptomsWidget.svg";
 
 class Calendar extends React.Component {
   constructor(props) {
@@ -166,31 +170,53 @@ class Calendar extends React.Component {
   render() {
     return (
       <div className="calendar">
-                    <div className="left">
-              <img src={dotLogoWhite} className="logo"/>
-              <h2>dot</h2>
-              <div id="circle">  </div>
-              <p className="name1"> Name </p>
-              <p id="nav"> <Link to= "/dashboard"> Dashboard </Link>
-            
-              <Link to="/calender"> Calendar </Link>
-Nutrition
-Location
-</p>
-<p className="icons"><FaHome />
+        <div className="box1">
+            <img src={dotLogoWhite} className="logo" />
+            <h2>dot</h2>
+            <div id="circle">  </div>
+            <p className="name"> Jane Doe </p>
+
+            <p id="nav">
+              <span style={{ display: 'inline-flex', alignItems: 'center', paddingLeft: '20px' }}>
+                <FaHome style={{ marginRight: '20px' }} />
+                <Link to="/dashboard" > Dashboard </Link>
+              </span>
+              
+              <div className="selected">
+              <span style={{ display: 'inline-flex', alignItems: 'center'}}>
+                <FaCalendarAlt style={{ marginRight: '20px' }} />
+                <Link to="/calender"> Calendar </Link>
+              </span>
+              </div>
+              <span style={{ display: 'inline-flex', alignItems: 'center', paddingLeft: '20px'  }}>
+                  <FaUtensils style={{ marginRight: '20px' }} />
+                  <Link to="/nutrition"> Nutrition </Link>
+                </span>
+            </p>
+            {/* <p className="icons">
+              <FaHome />
               <FaCalendarAlt />
               <FaUtensils />
-              <FaMapMarkerAlt /> </p>
-              
-              <p className="logout"> Logout </p>
-              <p className="icons1"><FaSignOutAlt  /> </p>
-            </div>
-            <div></div>
+              <FaMapMarkerAlt />
+            </p> */}
+            <img src={navGuy} className="navguy" />
+          </div>
+        <div></div>
         <div className="right">
-        {this.renderHeader()}
-        {this.renderDays()}
-        {this.renderCells()}
+          {this.renderHeader()}
+          {this.renderDays()}
+          {this.renderCells()}
         </div>
+        <div className="box6">
+
+            <p className="overview">Today's Overview</p>
+            <div className = "nutrition"></div>
+            <div className = "mood"></div>
+            {/* <img src={mood} className="mood" />
+            <p className="moodtext"> Mood </p>
+            <img src={nutrition} className="nutrition" />
+            <p className="nutritext"> Nutrition </p> */}
+          </div>
       </div>
     );
   }
