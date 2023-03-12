@@ -169,6 +169,17 @@
   margin-left: 20px;
 }
 
+.red {
+  color: #F36868;
+  font-weight: 900;
+  font-size: 60px;
+}
+
+.bold {
+  font-weight: bold;
+  color: black;
+}
+
 .box3 {
   height: 370px;
   box-sizing: border-box;

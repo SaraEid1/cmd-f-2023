@@ -20,7 +20,7 @@ class Dashboard extends React.Component {
       data: null,
       startDates: [],
       ovulday: "0",
-      
+
       displayTextMood: null,
       predictedPeriod: "",
       periodLength: "0",
@@ -41,20 +41,20 @@ class Dashboard extends React.Component {
       const periods = json.Period;
       const cycleLength = json.cycleLength;
       const periodLength = json.periodLength;
-      const daysSinceLastPeriod= json.daysSinceLastPeriod;
-      const daysUntilNextPeriod= json.daysUntilNextPeriod;
-      const daysinCycle= json.daysinCycle;
-      
+      const daysSinceLastPeriod = json.daysSinceLastPeriod;
+      const daysUntilNextPeriod = json.daysUntilNextPeriod;
+      const daysinCycle = json.daysinCycle;
+
       const ovulday = (cycleLength / 2).toString();;
       const startDates = Object.values(periods).map(period => period.startDate);
       console.log(startDates)
-      this.setState({ data: json, periods, startDates, ovulday, cycleLength, periodLength,daysSinceLastPeriod, daysUntilNextPeriod, daysinCycle});
+      this.setState({ data: json, periods, startDates, ovulday, cycleLength, periodLength, daysSinceLastPeriod, daysUntilNextPeriod, daysinCycle });
     } catch (error) {
       console.error(error);
     }
   }
   render() {
-   // const { cycleLength } = this.state;
+    // const { cycleLength } = this.state;
 
     return (
       <div className="dashboard">
@@ -66,28 +66,39 @@ class Dashboard extends React.Component {
           <div className="box2">
             <img src={dashboardGuy} className="dashboardguy" />
             <div className="hello" >Welcome Back Jane.</div>
-            <div className="regtext" style={{ width: '350px'}}>Just wanted to let you know that you're on day 14 of your flow. Hang in there, and don't forget to take care of yourself. You got this!</div>
+            <div className="regtext" style={{ width: '350px' }}>Just wanted to let you know that you're on day 9 of your flow. Hang in there, and don't forget to take care of yourself. You got this!</div>
           </div>
           <div className="side-stacked">
-            <div className="box3">
-            <div>{this.state.daysinCycle}</div> <div>days</div>
+            <div className="box3" style={{ padding: '20px' }}>
+              <div className="red" style={{ paddingBottom: '20px' }}>{this.state.daysinCycle}/30</div> <div>You are on day 9 out of 30 on your period cycle! Remember to drink plenty of water. </div>
+              <div className="bold" style={{ paddingTop: '20px' }}>You are in the follicular phase</div>
             </div>
             <div className="top-stacked">
-              <div className="box4">
-              <div>{this.state.daysUntilNextPeriod}</div> <div>days</div>
+              <div className="box4" style={{ display: 'flex', alignItems: 'baseline', paddingLeft: '20px' }}>
+                <div className="red">{this.state.daysUntilNextPeriod}</div>
+                <div style={{ marginLeft: '5px' }}>days until your next period begins</div>
               </div>
-              <div className="box5">
-              <div>{this.state.daysSinceLastPeriod}</div> <div>days</div>
+              <div className="box5" style={{ display: 'flex', alignItems: 'baseline', paddingLeft: '20px' }}>
+                <div className="red">{this.state.daysSinceLastPeriod}</div>
+                <div style={{ marginLeft: '5px' }}>since your last period ended</div>
+              </div>
+              <div className="side-stacked">
+                <div className="box7" style={{ display: 'flex', alignItems: 'baseline', paddingLeft: '20px', flexDirection: 'column' }}>
+                  <div className="side-stacked" style={{ alignItems: 'baseline', marginTop: '-8px' }}>
+                    <div className="red">{this.state.periodLength}</div>
+                    <div style={{ marginLeft: '5px' }}>days</div>
+                  </div>
 
-              </div>
-              <div className = "side-stacked">
-              <div className="box7">
-              <div>{this.state.periodLength}</div> <div>days</div>
-                <p></p>
-              </div>
-              <div className="box8">
-              <div>{this.state.cycleLength}</div> <div>days</div>
-              </div>
+                  <div className="bold" >Usual Period Length</div>
+                </div>
+                <div className="box8" style={{ display: 'flex', alignItems: 'baseline', paddingLeft: '20px', flexDirection: 'column' }}>
+                  <div className="side-stacked" style={{ alignItems: 'baseline', marginTop: '-8px' }}>
+                    <div className="red">{this.state.cycleLength}</div>
+                    <div style={{ marginLeft: '5px' }}>days</div>
+                  </div>
+
+                  <div className="bold" >Usual Cycle Length</div>
+                </div>
               </div>
             </div>
           </div>
@@ -119,7 +130,7 @@ class Dashboard extends React.Component {
 
           <div className="box6">
 
-<p className="overview" style={{ textAlign: 'center' }}>Today's Overview</p>
+<p className="overview" style={{ textAlign: 'center' }}>Overview</p>
 
  <div className="nutrition">
 

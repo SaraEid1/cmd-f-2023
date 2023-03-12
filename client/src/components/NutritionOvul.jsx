@@ -60,7 +60,7 @@ class Dashboard extends React.Component {
           </div>
           
           <div className="box6">
-            <p className="overview">Today's Overview</p>
+            <p className="overview">Overview</p>
             <div className = "nutrition"></div>
             <div className = "mood"></div>
             {/* <img src={mood} className="mood" />

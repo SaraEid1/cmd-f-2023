@@ -24,7 +24,9 @@ class Calendar extends React.Component {
       displayTextMood: "increased energy levels, more focus, slight increase in body temperature",
       predictedPeriod: "",
       periodLength: "0",
-      cycleLength: ""
+      cycleLength: "",
+      Fstartdate:"",
+      Fenddate:""
     };
   }
   async componentDidMount() {
@@ -37,8 +39,11 @@ class Calendar extends React.Component {
       console.log(cycleLength)
       const ovulday = (cycleLength / 2).toString();;
       const startDates = Object.values(periods).map(period => period.startDate);
-
-      this.setState({ data: json, periods, startDates, ovulday });
+      console.log (json.Phases.Follicular.startDate)
+      console.log (json.Phases.Follicular.endDate)
+      const Fstartdate = json.Phases.Follicular.startDate;
+      const Fenddate =json.Phases.Follicular.endDate;
+      this.setState({ data: json, periods, startDates, ovulday, Fenddate, Fstartdate });
     } catch (error) {
       console.error(error);
     }
@@ -81,15 +86,13 @@ class Calendar extends React.Component {
     return <div className="days row">{days}</div>;
   }
 
-
   renderCells() {
-    console.log("state", this.state.startDates);
-    console.log(this.state.ovulday)
-    const { currentMonth, selectedDate, startDates, ovulday } = this.state;
+    const { currentMonth, selectedDate, startDates, ovulday, Fenddate, Fstartdate } = this.state;
     const monthStart = startOfMonth(currentMonth);
     const monthEnd = endOfMonth(monthStart);
     const startDate = startOfWeek(monthStart);
     const endDate = endOfWeek(monthEnd);
+
 
     const dateFormat = "d";
     const rows = [];
@@ -98,23 +101,18 @@ class Calendar extends React.Component {
     let day = startDate;
     let formattedDate = "";
 
-    console.log("startDates", startDates);
 
     // Calculate ovulation date
     const ovulDate = addDays(startOfMonth(currentMonth), ovulday - 1);
+
     while (day <= endDate) {
       for (let i = 0; i < 7; i++) {
         formattedDate = format(day, dateFormat);
 
-        const isPeriodDate = this.state.startDates.some((period) => {
+        const isPeriodDate = startDates.some((period) => {
           const periodDate = new Date(period);
-          const periodDay = format(periodDate, "dd");
-          const currentDay = format(day, "dd");
-          return periodDay === currentDay;
+          return isSameDay(periodDate, day);
         });
-
-        //console.log('formattedDate:', formattedDate, 'isPeriodDate:', isPeriodDate, 'day:', day);
-        console.log(format(day, "dd") === ovulday);
 
         const isOvulDay =
           isSameDay(day, ovulDate) ||
@@ -127,12 +125,11 @@ class Calendar extends React.Component {
             className={`col cell ${!isSameMonth(day, monthStart)
               ? "disabled"
               : isSameDay(day, selectedDate)
-                ? "selected"
-                : ""
-              }`}
+              ? "selected"
+              : ""
+            }`}
             key={day}
             onClick={(event) => this.onDateClick(day, event)}
-
           >
             <span className="number">{formattedDate}</span>
             {isPeriodDate && <div className="rectangle"></div>}
@@ -230,7 +227,7 @@ class Calendar extends React.Component {
 
         <div className="box6">
 
-          <p className="overview" style={{ textAlign: 'center' }}>Today's Overview</p>
+          <p className="overview" style={{ textAlign: 'center' }}>Overview</p>
 
           <Link to="/nutrition"> <div className="nutrition">
 
