@@ -121,6 +121,7 @@ app.get("/data", async (req, res) => {
       nestedDict["flow"] = scores[d]
       dateData[dates[d]] = nestedDict;
     }
+    mainDict["Period"] = dateData;
 
     // Adds user's predicted period to mainDict
       // Separates dates into arrays based on cycle
@@ -141,25 +142,43 @@ app.get("/data", async (req, res) => {
       }
     }
     cycles.push(newCycle)
-    let cycleAvg = 0;
+
+      // Calculates cycle length and period length
+    let cycleLength = 0;
+    let periodLength = 0;
+    let lastPeriodStart;
     for (i in cycles) {
+      periodLength += cycles[i].length;
       if (i != 0) {
         const currCycle = new Date(cycles[i][0])
         const lastCycle = new Date(cycles[i-1][0])
         const diffInMs = currCycle.getTime() - lastCycle.getTime();
         const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
-        console.log(diffInDays);
+        cycleLength += diffInDays;
+        lastPeriodStart = cycles[i][0];
       }
     }
+    cycleLength = cycleLength/(cycles.length - 1);
+    periodLength = Math.round(periodLength/2);
+
+    // Predicts next period
+    dates = []
+    for (let step = 0; step < periodLength; step++) {
+      const newDate = new Date(new Date(lastPeriodStart).getTime() + (cycleLength+step) * 24 * 60 * 60 * 1000).toUTCString();
+      dates.push(newDate);
+    }
+
+    // Adds period prediction to JSON
+    dateData = {}
+    for (d in dates) {
+      let nestedDict = {}
+      nestedDict["startDate"] = dates[d];
+      nestedDict["endDate"] = dates[d];
+      dateData[dates[d]] = nestedDict;
+    }
+    mainDict["PredictedPeriod"] = dateData;
     
-    
-
-
-
-
-    mainDict["Period"] = dateData;
     const jsonData = JSON.stringify(mainDict);
-
 
     // Write the JSON data to a file
     fs.writeFileSync('data.json', jsonData);
