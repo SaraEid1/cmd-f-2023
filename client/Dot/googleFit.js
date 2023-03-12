@@ -9,6 +9,7 @@ const qs = require("qs");
 const bodyParser = require("body-parser");
 const axios = require("axios");
 const fs = require('fs');
+const { listenerCount } = require("events");
 
 let dates = [];
 let scores = [];
@@ -70,6 +71,7 @@ app.get("/data", async (req, res) => {
   const tokens = await oauth2Client.getToken(code);
   // console.log(tokens);
   res.send("SIGNED IN");
+  
 
   let stepArray = [];
 
@@ -123,6 +125,12 @@ app.get("/data", async (req, res) => {
     }
     mainDict["Period"] = dateData;
 
+    // Get days since last period end
+    let date1 = new Date();
+    let date2 = new Date(dates[dates.length-1])
+    let diffInMs = date1.getTime() - date2.getTime();
+    const daysSinceLastPeriod = diffInMs / (1000 * 60 * 60 * 24);
+
     // Adds user's predicted period to mainDict
       // Separates dates into arrays based on cycle
     let cycles = [];
@@ -147,8 +155,19 @@ app.get("/data", async (req, res) => {
     let cycleLength = 0;
     let periodLength = 0;
     let lastPeriodStart;
+
+    let counter = 0;
     for (i in cycles) {
+      // Attempt to detect if user is currently on period and ignore current cycle for period length count
+      // const targetDate = new Date()
+      // let lastVal = cycles[i].slice(-1)[0];
+      // if (lastVal !== targetDate.toUTCString()) {
+      //    counter ++;
+      //    periodLength += cycles[i].length;
+      //   }
+
       periodLength += cycles[i].length;
+
       if (i != 0) {
         const currCycle = new Date(cycles[i][0])
         const lastCycle = new Date(cycles[i-1][0])
@@ -159,14 +178,26 @@ app.get("/data", async (req, res) => {
       }
     }
     cycleLength = cycleLength/(cycles.length - 1);
-    periodLength = Math.round(periodLength/2);
+    periodLength = Math.round(periodLength/(cycles.length-counter));
 
     // Predicts next period
     dates = []
     for (let step = 0; step < periodLength; step++) {
       const newDate = new Date(new Date(lastPeriodStart).getTime() + (cycleLength+step) * 24 * 60 * 60 * 1000).toUTCString();
+      if (step == 0) {
+        const date1 = new Date();
+        const date2 = new Date(newDate);
+        const diffInMs = date2.getTime() - date1.getTime();
+        daysTilNextPeriod = diffInMs / (1000 * 60 * 60 * 24);
+      }
       dates.push(newDate);
     }
+
+    // Get day of cycle
+    date1 = new Date();
+    date2 = new Date(lastPeriodStart);
+    diffInMs = date1.getTime() - date2.getTime();
+    const dayinCycle = diffInMs / (1000 * 60 * 60 * 24);
 
     // Adds period prediction to JSON
     dateData = {}
@@ -179,7 +210,11 @@ app.get("/data", async (req, res) => {
     mainDict["PredictedPeriod"] = dateData;
     mainDict["cycleLength"] = cycleLength;
     mainDict["periodLength"] = periodLength;
-    mainDict["lastPeriod"] = lastPeriodStart;
+    mainDict["lastPeriodStart"] = lastPeriodStart;
+    mainDict["daysinCycle"] = Math.floor(dayinCycle);
+    mainDict["daysSinceLastPeriod"] = Math.floor(daysSinceLastPeriod);
+    mainDict["daysUntilNextPeriod"] = Math.floor(daysTilNextPeriod);
+    
 
     let jsonData = JSON.stringify(mainDict);
     fs.writeFileSync('data.json', jsonData);
