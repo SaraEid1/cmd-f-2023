@@ -12,7 +12,8 @@ class Calendar extends React.Component {
       currentMonth: new Date(),
       selectedDate: new Date(),
       data: null,
-      startDates: []
+      startDates: [],
+      ovulday: "0"
     };
   }
   async componentDidMount() {
@@ -23,7 +24,7 @@ class Calendar extends React.Component {
       const periods = json.Period;
       const cycleLength = json.cycleLength;
       console.log (cycleLength)
-      const ovulday = cycleLength/2;
+      const ovulday = (cycleLength/2).toString();;
       const startDates = Object.values(periods).map(period => period.startDate);
   
       this.setState({ data: json, periods, startDates, ovulday});
@@ -68,10 +69,12 @@ class Calendar extends React.Component {
 
     return <div className="days row">{days}</div>;
   }
+
+
   renderCells() {
     console.log("state", this.state.startDates);
     console.log (this.state.ovulday)
-    const { currentMonth, selectedDate, startDates } = this.state;
+    const { currentMonth, selectedDate, startDates,ovulday } = this.state;
     const monthStart = startOfMonth(currentMonth);
     const monthEnd = endOfMonth(monthStart);
     const startDate = startOfWeek(monthStart);
@@ -86,6 +89,8 @@ class Calendar extends React.Component {
   
     console.log("startDates", startDates);
   
+      // Calculate ovulation date
+    const ovulDate = addDays(startOfMonth(currentMonth), ovulday - 1);
     while (day <= endDate) {
       for (let i = 0; i < 7; i++) {
         formattedDate = format(day, dateFormat);
@@ -98,7 +103,14 @@ class Calendar extends React.Component {
         });
   
         //console.log('formattedDate:', formattedDate, 'isPeriodDate:', isPeriodDate, 'day:', day);
-  
+        console.log(format(day, "dd") === ovulday);
+
+        const isOvulDay =
+        isSameDay(day, ovulDate) ||
+        isSameDay(day, addDays(ovulDate, 1)) ||
+        isSameDay(day, addDays(ovulDate, 2)) ||
+        isSameDay(day, addDays(ovulDate, 3));
+
         days.push(
           <div
             className={`col cell ${
@@ -113,6 +125,7 @@ class Calendar extends React.Component {
           >
             <span className="number">{formattedDate}</span>
             {isPeriodDate && <div className="rectangle"></div>}
+            {isOvulDay && <div className="green"></div>}
           </div>
         );
         day = addDays(day, 1);

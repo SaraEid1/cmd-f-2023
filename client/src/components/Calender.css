@@ -69,3 +69,12 @@ color: #FFFFFF;
     opacity: 0.5; /* adjust the opacity as desired */
   }
   
+  .green {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    
+    background-color: #8DDFC7; /* change the color as desired */
+    opacity: 0.5; /* adjust the opacity as desired */
+  }
+  
