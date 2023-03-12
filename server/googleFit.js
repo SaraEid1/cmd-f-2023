@@ -115,6 +115,8 @@ app.get("/data", async (req, res) => {
             }
         }
     }
+
+    console.log(dates)
     // Adds user's past period data to mainDict
     for (d in dates) {
       let nestedDict = {}
