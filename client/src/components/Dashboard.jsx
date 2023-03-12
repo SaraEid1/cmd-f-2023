@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
-import { FaHome, FaCalendarAlt, FaUtensils, FaMapMarkerAlt, FaSignOutAlt  } from "react-icons/fa";
+import { FaHome, FaCalendarAlt, FaUtensils, FaMapMarkerAlt, FaSignOutAlt } from "react-icons/fa";
 import dashboard from "./Dashboard";
 
 import "./Dashboard.css";
@@ -12,6 +12,7 @@ import nutrition from "./nutritionWidget.svg";
 import symptoms from "./symptomsWidget.svg";
 import navGuy from "./navbarGuy.svg";
 
+
 class Dashboard extends React.Component {
   render() {
     return (
@@ -21,14 +22,14 @@ class Dashboard extends React.Component {
         </div>
         <div className="content">
           <div className="box1">
-            <img src={dotLogoWhite} className="logo"/>
+            <img src={dotLogoWhite} className="logo" />
             <h2>dot</h2>
             <div id="circle">  </div>
             <p className="name"> Name </p>
-            <p id="nav"> <Link to= "/dashboard"> Dashboard </Link>
+            <p id="nav"> <Link to="/dashboard"> Dashboard </Link>
               <Link to="/calender"> Calendar </Link>
               Nutrition
-              Location
+              
             </p>
             <p className="icons">
               <FaHome />
@@ -37,11 +38,11 @@ class Dashboard extends React.Component {
               <FaMapMarkerAlt />
             </p>
             <p className="logout"> Logout </p>
-            <p className="icons1"><FaSignOutAlt  /> </p>
-            <img src={navGuy} className="navguy"/>
+            <p className="icons1"><FaSignOutAlt /> </p>
+            <img src={navGuy} className="navguy" />
           </div>
           <div className="box2">
-            <img src={dashboardGuy} className="dashboardguy"/>
+            <img src={dashboardGuy} className="dashboardguy" />
             <p></p>
           </div>
           <div className="box3">
@@ -56,11 +57,11 @@ class Dashboard extends React.Component {
           <div className="box6">
 
             <p className="overview">Today's Overview</p>
-            <img src={mood} className="mood"/>
+            <img src={mood} className="mood" />
             <p className="moodtext"> Mood </p>
-            <img src={nutrition} className="nutrition"/>
+            <img src={nutrition} className="nutrition" />
             <p className="nutritext"> Nutrition </p>
-            <img src={symptoms} className="symptoms"/>
+            <img src={symptoms} className="symptoms" />
             <p className="symptomstext"> Symptoms </p>
           </div>
         </div>
