@@ -20,7 +20,6 @@ class Dashboard extends React.Component {
           <h1 className="dashboardtext">Dashboard</h1>
         </div>
         <div className="content">
-          <div className="whitespace"></div>
           <div className="box1">
             <img src={dotLogoWhite} className="logo"/>
             <h2>dot</h2>
