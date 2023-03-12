@@ -115,8 +115,6 @@ app.get("/data", async (req, res) => {
             }
         }
     }
-
-    console.log(dates)
     // Adds user's past period data to mainDict
     for (d in dates) {
       let nestedDict = {}
@@ -200,6 +198,39 @@ app.get("/data", async (req, res) => {
     date2 = new Date(lastPeriodStart);
     diffInMs = date1.getTime() - date2.getTime();
     const dayinCycle = diffInMs / (1000 * 60 * 60 * 24);
+
+    // Calculate phases lengths
+    const menstrualDays = periodLength;
+    const ovulationDay = Math.round(cycleLength/2);
+    const lutealDays = cycleLength - (ovulationDay + 2);
+    const follicDays = (ovulationDay-2) - periodLength;
+    const ovulDays = 4;
+    phases = [menstrualDays, follicDays, ovulDays, lutealDays];
+    phasesNames = ["Menstrual", "Follicular", "Ovular", "Luteal"];
+  //   nutritionInfo = ['Your menstrual phase is time to rest and replenish. Your body is undergoing a controlled inflammatory response to shed your uterine lining, so nourishing yourself with nutrient-dense, anti-inflammatory and iron-replenishing foods is important. \n\nKey Nutrients: Iron, Vitamin C and Magnesium\n\nRecommended foods:\nIron: beef, lamb, chickpeas, lentils, quinoa, kidney beans\nMagnesium: kale, watercress, spinach, pumpkin seeds, almonds', 
+  //   'During this phase, you often have high levels of energy, confidence, creativity, and openness to try new things. Enjoy a normal balanced diet during this phase, incorporating plenty of nourishing foods such as vegetables and lean proteins. \n\nKey Nutrients: Omega-3 Fatty Acids and Fibre\n\nRecommended Foods:\nOmega-3: flaxseed, salmon, sardines\nFibre: fruit (apples, strawberries, avocados), vegetables (brussel sprouts, cabbage broccoli, cauliflower)',
+  //   'Over the ovulation period, your oestrogen levels will rise and as a result, your body will need whole foods, rich with nutrients and antioxidants. Vitamin D and zinc become essential during this time, as these nutrients are crucial for reproductive health and can help regulate the menstrual cycle.\n\nKey Nutrients: Vitamin D and Zinc\n\nRecommended Foods: \nVitamin D: mushrooms, milk ,eggs\nZinc: red meat, egg, ginger, seafood, dairy',
+  //   ,'The Luteal Phase is often the time when cravings hit for carbs, sugar, fatty foods, etc. Focus on foods rich in vitamin B to combat potential sugar cravings. Your body will also be busy working to prepare for menstruation and needs more fat and proteins to break down. \n\nKey nutrients: healthy fats and vitamin B\n\nRecommended Foods:\nHealthy fats: avocado, salmon, sesame/sunflower seeds\nVitamin B6: red meat, carrots, sweet potato, lentils, oats, walnuts'
+  // ]
+
+    // Calculates phase dates and adds to JSON file
+    startDate = new Date(lastPeriodStart);
+    endDate = new Date(startDate);
+    endDate.setDate(endDate.getDate() + menstrualDays - 1);
+    dateData = {}
+    counter = 0;
+    for (p in phases) {
+      counter ++;
+      let nestedDict = {}
+      nestedDict["startDate"] = startDate.toUTCString();
+      nestedDict["endDate"] = endDate.toUTCString();
+      dateData[phasesNames[counter - 1]] = nestedDict;
+      startDate = new Date(endDate);
+      startDate.setDate(startDate.getDate() + 1);
+      endDate = new Date(startDate);
+      endDate.setDate(endDate.getDate() + phases[counter] - 1);
+    }
+    mainDict["Phases"] = dateData;
 
     // Adds period prediction to JSON
     dateData = {}

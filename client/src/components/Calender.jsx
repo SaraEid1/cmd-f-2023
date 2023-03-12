@@ -21,9 +21,12 @@ class Calendar extends React.Component {
       const json = await response.json();
   
       const periods = json.Period;
+      const cycleLength = json.cycleLength;
+      console.log (cycleLength)
+      const ovulday = cycleLength/2;
       const startDates = Object.values(periods).map(period => period.startDate);
   
-      this.setState({ data: json, periods, startDates });
+      this.setState({ data: json, periods, startDates, ovulday});
     } catch (error) {
       console.error(error);
     }
@@ -67,6 +70,7 @@ class Calendar extends React.Component {
   }
   renderCells() {
     console.log("state", this.state.startDates);
+    console.log (this.state.ovulday)
     const { currentMonth, selectedDate, startDates } = this.state;
     const monthStart = startOfMonth(currentMonth);
     const monthEnd = endOfMonth(monthStart);
@@ -85,19 +89,6 @@ class Calendar extends React.Component {
     while (day <= endDate) {
       for (let i = 0; i < 7; i++) {
         formattedDate = format(day, dateFormat);
-
-       /* const periods1 = [
-          "Wed, 01 Feb 2023 08:00:00 GMT",
-          "Thu, 02 Feb 2023 08:00:00 GMT",
-          "Fri, 03 Feb 2023 08:00:00 GMT",
-          "Sat, 04 Feb 2023 08:00:00 GMT",
-          "Sun, 05 Feb 2023 08:00:00 GMT",
-          "Fri, 03 Mar 2023 08:00:00 GMT",
-          "Sat, 04 Mar 2023 08:00:00 GMT",
-          "Sun, 05 Mar 2023 08:00:00 GMT",
-          "Mon, 06 Mar 2023 08:00:00 GMT",
-          "Tue, 07 Mar 2023 08:00:00 GMT"
-        ];*/
   
         const isPeriodDate = this.state.startDates.some((period) => {
           const periodDate = new Date(period);
