@@ -26,12 +26,20 @@
   height: 100%;
   width: 300px;
   padding: 0px;
-
+  top: 0px;
   background: #000000;
   border-radius: 0px 21.0736px 21.0736px 0px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.logo {
+  background-size: 50px 50px; /* set the size of the background image */
+  width: 60px;
+  height: 60px;
+  padding-left: 20px;
+  color: #ffffff;
 }
 
 .navguy {
@@ -43,6 +51,7 @@
 
 #nav {
   position: absolute;
+  top: 320px;
   width: 200px;
 
   font-family: "Inter";
@@ -71,9 +80,7 @@
 
 /* MAIN CONTENT */
 
-.dashboard {
-  display: grid;
-}
+
 
 .header {
   font-weight: 900;
@@ -89,12 +96,14 @@
   left: 300px;
   right: 300px;
   padding: 100px;
+  top: 0px;
 }
 
 .topMenu {
   width: 100%;
   display: inline-flex;
   align-items: center;
+  padding-bottom: 20px;
 }
 
 .date {
@@ -103,68 +112,89 @@
   color: black;
 }
 
+.nutriText {
+  font-size: 14px;
+  padding: 20px 0px;
+}
+
 .box2 {
-  position: absolute;
-  width: 670px;
-  height: 309.78px;
-  left: 330.69px;
-  top: 132.35px;
-
+  width: 100%;
+  height: 200px;
   background: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(79.0258px);
-  /* Note: backdrop-filter has minimal browser support */
+  border-radius: 20px;
+}
 
-  border-radius: 21.0736px;
+.dashboardguy {
+  position: absolute;
+  width: 250px;
+  top: 160px;
+  right: 90px;
+}
+
+.side-stacked {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.top-stacked {
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  margin-left: 20px;
 }
 
 .box3 {
+  height: 370px;
   box-sizing: border-box;
-
-  position: absolute;
-  width: 270px;
-  height: 418px;
-  left: 331px;
-  top: 482px;
-
+  width: 35%;
   background: rgba(255, 255, 255, 0.4);
-  border: 5.26839px solid #ffffff;
+  border: 3px solid #ffffff;
   box-shadow: 10.5368px 10.5368px 31.6103px rgba(0, 0, 0, 0.1);
-  border-radius: 21.0736px;
+  border-radius: 20px;
 }
 
 .box4 {
-  box-sizing: border-box;
-
-  position: absolute;
-  width: 345px;
-  height: 175px;
-  left: 650px;
-  top: 482px;
-
+  height: 100px;
+  width: 100%;
   background: rgba(255, 255, 255, 0.4);
-  border: 5.26839px solid #ffffff;
-  border-radius: 21.0736px;
+  border: 3px solid #ffffff;
+  box-shadow: 10.5368px 10.5368px 31.6103px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
 }
 
 .box5 {
-  box-sizing: border-box;
-
-  position: absolute;
-  width: 345px;
-  height: 217px;
-  left: 650px;
-  top: 677px;
-
+  margin-top: 20px;
+  height: 100px;
+  width: 100%;
   background: rgba(255, 255, 255, 0.4);
-  border: 5.26839px solid #ffffff;
+  border: 3px solid #ffffff;
   box-shadow: 10.5368px 10.5368px 31.6103px rgba(0, 0, 0, 0.1);
-  border-radius: 21.0736px;
+  border-radius: 20px;
+}  
+
+.box7 {
+  height: auto;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.4);
+  border: 3px solid #ffffff;
+  box-shadow: 10.5368px 10.5368px 31.6103px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+}
+
+.box8 {
+  margin-left: 20px;
+  height: 130px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.4);
+  border: 3px solid #ffffff;
+  box-shadow: 10.5368px 10.5368px 31.6103px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
 }  
 
 .box6 {
-  position: absolute;
+  position: fixed;
   right: 0;
-  background-color: green;
   width: 300px;
   height: 100%;
   top: 0;
@@ -236,4 +266,11 @@
   height: 300px;
   margin: 30px;
   border-radius: 20px;
+}
+
+.recipe {
+  height: 245px;
+  padding-left: -20px;
+  margin-left: -20px;
+  margin-bottom: -40px;
 }
