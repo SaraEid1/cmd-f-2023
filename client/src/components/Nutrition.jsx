@@ -60,7 +60,7 @@ class Dashboard extends React.Component {
           </div>
 
           <div className="box6">
-            <p className="overview">Overview</p>
+            <p className="overview" style={{ textAlign: 'center' }}>Overview</p>
             <Link to="/nutrition"> <div className="nutrition"></div> </Link>
             <div className="mood"></div>
             {/* <img src={mood} className="mood" />
