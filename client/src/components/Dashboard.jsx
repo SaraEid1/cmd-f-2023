@@ -14,6 +14,8 @@ import navGuy from "./navbarGuy.svg";
 import profile from "./profile.svg";
 import Map from "./Map";
 
+import nutritionFace from "./nutritionFace.svg";
+import moodFace from "./moodFace.svg";
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -103,7 +105,7 @@ class Dashboard extends React.Component {
                 </div>
               </div>
             </div>
-            
+
           </div>
           <div className="box10">
               <img src={dashboardGuy} className="dashboardguy" />
@@ -138,26 +140,35 @@ class Dashboard extends React.Component {
 
           <div className="box6">
 
-<p className="overview" style={{ textAlign: 'center' }}>Overview</p>
+            <p className="overview" style={{ textAlign: 'center' }}>Overview</p>
+            <div className="nutrition">
+              <img src={nutritionFace} className="nutritionFace" style={{
+                float: 'right',
+                paddingTop: '220px',
+              }} />
+              <div className='nutritiontext0'>Nutrition</div>
+              <div className="nutritiontext">Key Nutrients: </div>
+              {this.state.displayText && <div className='nutritiontextreg'>{this.state.displayText}</div>}
+            </div>
 
- <div className="nutrition">
+            <div className="mood">
 
-  <div className='nutritiontext0'>Nutrition</div>
-  <div className="nutritiontext">Key Nutrients: </div>
-   {this.state.displayText && <div className='nutritiontextreg'>{this.state.displayText}</div>} 
-</div>
-<div className="mood">
-
-  <div className='symptomstext0'>Symptoms</div>
-  {this.state.displayTextMood && <div className='nutritiontextreg'>{this.state.displayTextMood}</div>}
-</div>
-{/* <img src={mood} className="mood" />
+              <div className='symptomstext0'>Symptoms</div>
+              {this.state.displayTextMood && <div className='nutritiontextreg'>{this.state.displayTextMood}</div>}
+              <img src={moodFace} className="moodFace" style={{
+                float: 'right',
+                position: 'absolute',
+                top: '670px',
+                right: '50px'
+              }} />
+            </div>
+            {/* <img src={mood} className="mood" />
   <p className="moodtext"> Mood </p>
   <img src={nutrition} className="nutrition" />
   <p className="nutritext"> Nutrition </p> */}
 
 
-</div>
+          </div>
 
 
         </div>

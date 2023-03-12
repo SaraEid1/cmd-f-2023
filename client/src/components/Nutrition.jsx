@@ -16,6 +16,8 @@ import lemonChicken from "./lemonChicken.svg";
 import avocado from "./avocado.svg";
 import steak from "./steak.svg";
 import quinoa from "./quinoa.svg";
+import nutritionFace from "./nutritionFace.svg";
+import moodFace from "./moodFace.svg";
 
 class Dashboard extends React.Component {
   render() {
@@ -61,8 +63,18 @@ class Dashboard extends React.Component {
 
           <div className="box6">
             <p className="overview" style={{ textAlign: 'center' }}>Overview</p>
-            <Link to="/nutrition"> <div className="nutrition"></div> </Link>
+            <Link to="/nutrition"> <div className="nutrition">
+            <img src={nutritionFace} className="nutritionFace" style={{
+                float: 'right',
+                paddingTop: '220px',
+              }} /></div> </Link>
             <div className="mood"></div>
+            <img src={moodFace} className="moodFace" style={{
+                float: 'right',
+                position: 'absolute',
+                top: '670px',
+                right: '50px'
+              }} />
             {/* <img src={mood} className="mood" />
             <p className="moodtext"> Mood </p>
             <img src={nutrition} className="nutrition" />

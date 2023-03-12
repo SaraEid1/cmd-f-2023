@@ -9,6 +9,8 @@ import mood from "./moodWidget.svg";
 import nutrition from "./nutritionWidget.svg";
 import symptoms from "./symptomsWidget.svg";
 import profile from "./profile.svg";
+import nutritionFace from "./nutritionFace.svg";
+import moodFace from "./moodFace.svg";
 
 class Calendar extends React.Component {
 
@@ -25,8 +27,8 @@ class Calendar extends React.Component {
       predictedPeriod: "",
       periodLength: "0",
       cycleLength: "",
-      Fstartdate:"",
-      Fenddate:""
+      Fstartdate: "",
+      Fenddate: ""
     };
   }
   async componentDidMount() {
@@ -39,10 +41,10 @@ class Calendar extends React.Component {
       console.log(cycleLength)
       const ovulday = (cycleLength / 2).toString();;
       const startDates = Object.values(periods).map(period => period.startDate);
-      console.log (json.Phases.Follicular.startDate)
-      console.log (json.Phases.Follicular.endDate)
+      console.log(json.Phases.Follicular.startDate)
+      console.log(json.Phases.Follicular.endDate)
       const Fstartdate = json.Phases.Follicular.startDate;
-      const Fenddate =json.Phases.Follicular.endDate;
+      const Fenddate = json.Phases.Follicular.endDate;
       this.setState({ data: json, periods, startDates, ovulday, Fenddate, Fstartdate });
     } catch (error) {
       console.error(error);
@@ -126,9 +128,9 @@ class Calendar extends React.Component {
             className={`col cell ${!isSameMonth(day, monthStart)
               ? "disabled"
               : ""
-              ? "selected"
-              : ""
-            }`}
+                ? "selected"
+                : ""
+              }`}
             key={day}
             onClick={(event) => this.onDateClick(day, event)}
           >
@@ -182,7 +184,7 @@ class Calendar extends React.Component {
   };
 
   render() {
-    const nutritionRoute = this.state.displayText.includes( 'Iron, Vitamin C and Magnesium') ? '/nutritionmens' : '/nutritionovul';
+    const nutritionRoute = this.state.displayText.includes('Iron, Vitamin C and Magnesium') ? '/nutritionmens' : '/nutritionovul';
 
     const { currentMonth, selectedDate, startDates, ovulday, displayText, displayTextMood } = this.state;
 
@@ -233,17 +235,26 @@ class Calendar extends React.Component {
           <p className="overview" style={{ textAlign: 'center' }}>Overview</p>
 
           <div className="nutrition">
-
+            <img src={nutritionFace} className="nutritionFace" style={{
+              float: 'right',
+              paddingTop: '220px',
+            }} />
             <div className='nutritiontext0'>Nutrition</div>
             <div className="nutritiontext">Key Nutrients: </div>
 
-            
+
             <Link to={nutritionRoute}> {displayText && <div className='nutritiontextreg'>{displayText}</div>} </Link>
           </div>
           <div className="mood">
 
             <div className='symptomstext0'>Symptoms</div>
             {displayTextMood && <div className='nutritiontextreg'>{displayTextMood}</div>}
+            <img src={moodFace} className="moodFace" style={{
+              float: 'right',
+              position: 'absolute',
+              top: '670px',
+              right: '50px'
+            }} />
           </div>
           {/* <img src={mood} className="mood" />
             <p className="moodtext"> Mood </p>
