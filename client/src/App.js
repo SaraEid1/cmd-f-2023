@@ -7,7 +7,7 @@ import Dashboard from "./components/Dashboard";
 import Welcome from "./components/Welcome";
 import DisplayData from "./components/DisplayData";
 import Login from "./components/Login"
-import NutritionOvul from "./components/nutritionOvul"
+import NutritionOvul from "./components/NutritionOvul"
 // import OAuthRedirectHandler from "./components/OAuthRedirectHandler";
 
 import { BrowserRouter as Router } from 'react-router-dom';
