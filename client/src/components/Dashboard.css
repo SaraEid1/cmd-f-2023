@@ -1,7 +1,8 @@
 .dashboard {
     background: #F5F5F5;
     font-family: 'Inter', sans-serif;
-    
+    display: flex;
+
   }
   
   .header h1 {
@@ -59,10 +60,16 @@ color: #FFFFFF;
     font-weight: 600;
     font-size: 18px;
     line-height: 271.02%;
+    
     /* or 49px */
     
     
     color: #FFFFFF;
+  }
+
+  #nav a {
+    text-decoration: none;
+    color: inherit;
   }
   
   .name{
@@ -127,8 +134,12 @@ color: #FFFFFF;
   }
 
   .logo{
+    background-size: 50px 50px; /* set the size of the background image */
+    width: 60px;
+    height: 60px;
+
     position: absolute;
-left: 0%;
+left: 5%;
 right: 0%;
 top: 0%;
 bottom: 0.97%;
@@ -166,8 +177,8 @@ color: #FFFFFF;
     left: 330.69px;
     top: 132.35px;
     
-    background: #000000;
-    backdrop-filter: blur(79.0258px);
+    background: rgba(255, 255, 255, 0.3);
+backdrop-filter: blur(79.0258px);
     /* Note: backdrop-filter has minimal browser support */
     
     border-radius: 21.0736px;
@@ -222,10 +233,13 @@ color: #FFFFFF;
     box-sizing: border-box;
 
     position: absolute;
-    width: 200px;
+    width: 195px;
     height: 960px;
-    left: 1060.11px;
+    left: 1020px;
     top: 4px;
+    
+    flex-direction: column;
+    align-items: center;
     
     background: rgba(255, 255, 255, 0.4);
     border: 5.26839px solid #FFFFFF;
@@ -259,4 +273,123 @@ color: #FFFFFF;
     color: #FFFFFF;
 
   }
-  
+
+
+  .overview{
+    position: absolute;
+left: 11.47%;
+right: 15.22%;
+top: 4.26%;
+bottom: 87.32%;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 900;
+font-size: 20px;
+line-height: 24px;
+
+color: #000000;
+
+  }
+
+  .moodtext{
+    position: absolute;
+    left: 11.47%;
+    right: 55.22%;
+    top: 46%;
+    bottom: 87.32%;
+    z-index: 1;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 24px;
+    
+    color: #FFFFFF;
+  }
+
+  .nutritext{
+    position: absolute;
+    left: 11.47%;
+    right: 55.22%;
+    top: 26%;
+    bottom: 87.32%;
+    z-index: 1;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 24px;
+    
+    color: #FFFFFF;
+  }
+
+  .symptomstext{
+    position: absolute;
+    left: 11.47%;
+    right: 55.22%;
+    top: 66%;
+    bottom: 87.32%;
+    z-index: 1;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 24px;
+    
+    color: #FFFFFF;
+  }
+  .dashboardguy{
+    position: absolute;
+width: 300px;
+height: 300px;
+left: 380px;
+top: -80px;
+  }
+
+
+  .nutrition{
+    position: absolute;
+    width: 200px;
+height: 200px;
+
+top: 15%;
+right: -5%;
+
+  }
+
+  .mood{
+    position: absolute;
+    width: 200px;
+height: 200px;
+top: 35%;
+right: -5%;
+
+
+  }
+
+  .symptoms{
+    position: absolute;
+    width: 200px;
+height: 200px;
+top: 55%;
+right: -5%;
+  }
+
+  .navguy{
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    top: 56%;
+    right: -20%;
+  }
+
+  .whitespace{
+    position: absolute;
+    width: 60px;
+    height: 970px;
+    top: 0%;
+    left: 22.4%;
+    background: #F5F5F5;
+    z-index: 1;
+  }

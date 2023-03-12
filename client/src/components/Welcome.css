@@ -208,7 +208,7 @@ color: #000000;
     position: absolute;
 width: 176px;
 height: 48px;
-left: 1043px;
+left: 1030px;
 top: 82px;
 
 background: #000000;
@@ -218,7 +218,7 @@ border-radius: 66px;
     position: absolute;
     width: 56px;
     height: 24px;
-    left: 1100px;
+    left: 1090px;
     top: 94px;
     
     font-family: 'Inter';
@@ -230,4 +230,15 @@ border-radius: 66px;
     
     color: #FFFFFF;
     
+ }
+ .logo{
+    background-size: 50px 50px; /* set the size of the background image */
+    width: 90px;
+    height: 90px;
+
+    position: absolute;
+left: 5%;
+right: 0%;
+top: 2.4%;
+bottom: 0.97%;
  }

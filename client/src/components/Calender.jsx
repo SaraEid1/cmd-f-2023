@@ -1,5 +1,10 @@
 import React from "react";
 import { format, startOfWeek, addDays, startOfMonth, endOfMonth, endOfWeek, isSameMonth, isSameDay, parse, addMonths, subMonths} from 'date-fns'
+import { FaHome, FaCalendarAlt, FaUtensils, FaMapMarkerAlt, FaSignOutAlt  } from "react-icons/fa";
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import "./Calender.css";
+import dashboard from "./Dashboard";
+import dotLogoWhite from "./dotLogoWhiteSVG.svg";
 
 
 class Calendar extends React.Component {
@@ -110,9 +115,31 @@ class Calendar extends React.Component {
   render() {
     return (
       <div className="calendar">
+                    <div className="left">
+              <img src={dotLogoWhite} className="logo"/>
+              <h2>dot</h2>
+              <div id="circle">  </div>
+              <p className="name1"> Name </p>
+              <p id="nav"> <Link to= "/dashboard"> Dashboard </Link>
+            
+              <Link to="/calender"> Calendar </Link>
+Nutrition
+Location
+</p>
+<p className="icons"><FaHome />
+              <FaCalendarAlt />
+              <FaUtensils />
+              <FaMapMarkerAlt /> </p>
+              
+              <p className="logout"> Logout </p>
+              <p className="icons1"><FaSignOutAlt  /> </p>
+            </div>
+            <div></div>
+        <div className="right">
         {this.renderHeader()}
         {this.renderDays()}
         {this.renderCells()}
+        </div>
       </div>
     );
   }

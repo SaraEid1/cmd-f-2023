@@ -1,0 +1,62 @@
+.calendar{
+    display: flex;
+    height: 100vh;}
+.left {
+    position: absolute;
+    width: 269px;
+    height: 960px;
+    left: 2px;
+    top: 4px;
+    
+    background: #000000;
+    border-radius: 0px 21.0736px 21.0736px 0px;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+
+  .logo{
+    background-size: 50px 50px; /* set the size of the background image */
+    width: 60px;
+    height: 60px;
+
+    position: absolute;
+left: 5%;
+right: 0%;
+top: 0%;
+bottom: 0.97%;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 900;
+font-size: 36.6872px;
+line-height: 44px;
+
+color: #FFFFFF;
+
+  }
+
+  .right{
+    width: 920px;
+    height: 900px;
+    top: 200px;
+    float: right;
+  }
+
+  .name1{
+    position: absolute;
+    left: 38%;
+    right: 33.78%;
+    top: 24%;
+    bottom: 68.1%;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 21.0736px;
+    line-height: 271.02%;
+    /* or 57px */
+    
+    
+    color: #FFFFFF;
+  }
