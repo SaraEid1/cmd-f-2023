@@ -63,7 +63,8 @@ class Dashboard extends React.Component {
           </div>
           <div className="box2">
             <img src={dashboardGuy} className="dashboardguy" />
-            <p></p>
+            <div className="hello" >Welcome Back Jane.</div>
+            <div className="regtext" style={{ width: '350px'}}>Just wanted to let you know that you're on day 14 of your flow. Hang in there, and don't forget to take care of yourself. You got this!</div>
           </div>
           <div className="side-stacked">
             <div className="box3">
@@ -117,7 +118,7 @@ class Dashboard extends React.Component {
           <div className="box6">
 
             <p className="overview">Today's Overview</p>
-            <div className="nutrition"></div>
+            <Link to="/nutrition"> <div className="nutrition"></div> </Link>
             <div className="mood"></div>
             {/* <img src={mood} className="mood" />
             <p className="moodtext"> Mood </p>

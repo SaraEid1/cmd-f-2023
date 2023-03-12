@@ -8,6 +8,7 @@ import navGuy from "./navbarGuy.svg";
 import mood from "./moodWidget.svg";
 import nutrition from "./nutritionWidget.svg";
 import symptoms from "./symptomsWidget.svg";
+import profile from "./profile.svg";
 
 class Calendar extends React.Component {
 
@@ -124,10 +125,10 @@ class Calendar extends React.Component {
         days.push(
           <div
             className={`col cell ${!isSameMonth(day, monthStart)
-                ? "disabled"
-                : isSameDay(day, selectedDate)
-                  ? "selected"
-                  : ""
+              ? "disabled"
+              : isSameDay(day, selectedDate)
+                ? "selected"
+                : ""
               }`}
             key={day}
             onClick={(event) => this.onDateClick(day, event)}
@@ -154,10 +155,10 @@ class Calendar extends React.Component {
   onDateClick = (day, event) => {
     const targetClassList = event.target.classList;
     if (targetClassList.contains("rectangle")) {
-      this.setState({ displayText: " Key Nutrients: Iron, Vitamin C and Magnesium" });
+      this.setState({ displayText: " Iron, Vitamin C and Magnesium" });
       this.setState({ displayTextMood: " cramps, bloating, tender breasts, mood swings, irritability, headaches, tiredness, lower back pain" });
     } else if (targetClassList.contains("green")) {
-      this.setState({ displayText: "Key Nutrients: Vitamin D and Zinc" });
+      this.setState({ displayText: "Vitamin D and Zinc" });
       this.setState({ displayTextMood: " " });
     } else {
       this.setState({ displayText: "" }); // clear the text if neither condition is met
@@ -192,7 +193,7 @@ class Calendar extends React.Component {
         <div className="box1">
           <img src={dotLogoWhite} className="logo" />
           <h2>dot</h2>
-          <div id="circle">  </div>
+          <img src={profile} id="circle" />
           <p className="name"> Jane Doe </p>
 
           <p id="nav">
@@ -212,40 +213,43 @@ class Calendar extends React.Component {
               <Link to="/nutrition"> Nutrition </Link>
             </span>
           </p>
-          {/* <p className="icons">
-              <FaHome />
-              <FaCalendarAlt />
-              <FaUtensils />
-              <FaMapMarkerAlt />
-            </p> */}
           <img src={navGuy} className="navguy" />
         </div>
-        <div></div>
-        <div className="right">
-          {this.renderHeader()}
-          {this.renderDays()}
-          {this.renderCells()}
+
+        <div className="mainContent">
+          <div className="topMenu" style={{ display: 'inline-flex', alignItems: 'center' }}>
+            <div className="header2">Calendar </div>
+            <div className="date">Saturday March 11th, 2023 </div>
+          </div>
+          <div className="right">
+            {this.renderHeader()}
+            {this.renderDays()}
+            {this.renderCells()}
+          </div>
         </div>
+
         <div className="box6">
 
-          <p className="overview">Today's Overview</p>
-          <div className="nutrition">
+          <p className="overview" style={{ textAlign: 'center' }}>Today's Overview</p>
+
+          <Link to="/nutrition"> <div className="nutrition">
 
             <div className='nutritiontext0'>Nutrition</div>
-            <Link to="/nutrition"> {displayText && <div className='nutritiontext'>{displayText}</div>} </Link>
-          </div>
+            <div className="nutritiontext">Key Nutrients: </div>
+            <Link to="/nutrition"> {displayText && <div className='nutritiontextreg'>{displayText}</div>} </Link>
+          </div> </Link>
           <div className="mood">
 
             <div className='symptomstext0'>Symptoms</div>
-            {displayTextMood && <div className='symptomstext'>{displayTextMood}</div>}
+            {displayTextMood && <div className='nutritiontextreg'>{displayTextMood}</div>}
           </div>
-        {/* <img src={mood} className="mood" />
+          {/* <img src={mood} className="mood" />
             <p className="moodtext"> Mood </p>
             <img src={nutrition} className="nutrition" />
             <p className="nutritext"> Nutrition </p> */}
 
 
-      </div>
+        </div>
       </div >
     );
   }
