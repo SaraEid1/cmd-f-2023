@@ -26,13 +26,16 @@ class Dashboard extends React.Component {
             <div className="header">Nutrition </div>
             <div className="date">Saturday March 11th, 2023 </div>
           </div>
-          <div className = "nutriText"> Your menstrual phase is time to rest and replenish. Your body is undergoing a controlled inflammatory response to shed your uterine lining, so nourishing yourself with nutrient-dense, anti-inflammatory and iron-replenishing foods is important.</div>
-          <div className = "nutriText">Your menstrual phase is time to rest and replenish. Your body is undergoing a controlled inflammatory response to shed your uterine lining, so nourishing yourself with nutrient-dense, anti-inflammatory and iron-replenishing foods is important. 
-</div>
-          <Link to="https://www.foodnetwork.com/recipes/food-network-kitchen/lemon-pepper-roast-chicken-recipe-2268957" > <img src={lemonChicken} className="recipe" /> </Link>
-          <Link to="https://www.seriouseats.com/avocado-toast-smoked-salmon-goat-cheese-capers" > <img src={avocado} className="recipe" /> </Link>
-          <Link to="https://iowagirleats.com/steak-and-sweet-potato-bowls-with-avocado-cilantro-drizzle/" > <img src={steak} className="recipe" /> </Link>
-          <Link to="https://www.twopeasandtheirpod.com/mediterranean-three-bean-quinoa-salad/" > <img src={quinoa} className="recipe" /> </Link>
+          <div className="nutriText"> Your menstrual phase is time to rest and replenish. Your body is undergoing a controlled inflammatory response to shed your uterine lining, so nourishing yourself with nutrient-dense, anti-inflammatory and iron-replenishing foods is important.</div>
+          <div className="nutriText">Your menstrual phase is time to rest and replenish. Your body is undergoing a controlled inflammatory response to shed your uterine lining, so nourishing yourself with nutrient-dense, anti-inflammatory and iron-replenishing foods is important.
+          </div>
+          <a href="https://www.foodnetwork.com/recipes/food-network-kitchen/lemon-pepper-roast-chicken-recipe-2268957" target="_blank"><img src={lemonChicken} className="recipe" /></a>
+
+          <a href="https://www.seriouseats.com/avocado-toast-smoked-salmon-goat-cheese-capers" target="_blank"><img src={avocado} className="recipe" /></a>
+
+          <a href="https://iowagirleats.com/steak-and-sweet-potato-bowls-with-avocado-cilantro-drizzle/" target="_blank"><img src={steak} className="recipe" /></a>
+
+          <a href="https://www.twopeasandtheirpod.com/mediterranean-three-bean-quinoa-salad/" target="_blank"><img src={quinoa} className="recipe" /></a>
         </div>
         <div className="content">
           <div className="box1">
@@ -59,11 +62,11 @@ class Dashboard extends React.Component {
             </p>
             <img src={navGuy} className="navguy" />
           </div>
-          
+
           <div className="box6">
             <p className="overview">Today's Overview</p>
             <Link to="/nutrition"> <div className="nutrition"></div> </Link>
-            <div className = "mood"></div>
+            <div className="mood"></div>
             {/* <img src={mood} className="mood" />
             <p className="moodtext"> Mood </p>
             <img src={nutrition} className="nutrition" />
