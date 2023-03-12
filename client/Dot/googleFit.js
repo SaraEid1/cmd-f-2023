@@ -12,7 +12,9 @@ const fs = require('fs');
 
 let dates = [];
 let scores = [];
-let periodData = [];
+let dateData = {};
+let mainDict = {};
+let cycleLength;
 
 let oauth2Client;
 
@@ -105,28 +107,62 @@ app.get("/data", async (req, res) => {
               const valueArrays = period.value
               const intVal = valueArrays[0].intVal;
               if (!(dates.includes(period.startTimeNanos))) {
-                dates.push(new Date(period.startTimeNanos/1000000).toUTCString())
-                scores.push(intVal)
+                dates.push(new Date(period.startTimeNanos/1000000).toUTCString()) // period dates array
+                scores.push(intVal) // period scores array
               }
             }
         }
     }
-    //console.log(dates) // prints period dates
-    //console.log(scores) // prints period scores (2-4)
-
-    let counter = 0;
-    // Creates array with [date, period score]
+    // Adds user's past period data to mainDict
     for (d in dates) {
-        periodData.push([dates[d], scores[counter]])
-        counter ++;
+      let nestedDict = {}
+      nestedDict["startDate"] = dates[d];
+      nestedDict["endDate"] = dates[d];
+      nestedDict["flow"] = scores[d]
+      dateData[dates[d]] = nestedDict;
     }
-    console.log(periodData)
 
-    const jsonData = JSON.stringify(periodData);
+    // Adds user's predicted period to mainDict
+      // Separates dates into arrays based on cycle
+    let cycles = [];
+    let newCycle = []
+    for (d in dates) {
+      currentDate = dates[d];
+      const date1 = new Date(dates[d]);
+      const date2 = new Date(dates[d-1]);
+      const diffInMs = date1.getTime() - date2.getTime();
+      const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
+      if (diffInDays > 1) {
+        cycles.push(newCycle);
+        newCycle = [];
+        newCycle.push(currentDate);
+      } else  {
+        newCycle.push(currentDate);
+      }
+    }
+    cycles.push(newCycle)
+    let cycleAvg = 0;
+    for (i in cycles) {
+      if (i != 0) {
+        const currCycle = new Date(cycles[i][0])
+        const lastCycle = new Date(cycles[i-1][0])
+        const diffInMs = currCycle.getTime() - lastCycle.getTime();
+        const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
+        console.log(diffInDays);
+      }
+    }
+    
+    
+
+
+
+
+    mainDict["Period"] = dateData;
+    const jsonData = JSON.stringify(mainDict);
+
 
     // Write the JSON data to a file
-    const header = 'Period Data\n';
-    fs.writeFileSync('data.json', header + jsonData);
+    fs.writeFileSync('data.json', jsonData);
 
   } catch (e) {
     console.log(e)
