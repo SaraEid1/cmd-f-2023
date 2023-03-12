@@ -139,7 +139,7 @@ class Dashboard extends React.Component {
           <div className="box6">
 
             <p className="overview" style={{ textAlign: 'center' }}>Overview</p>
-            <Link to="/nutrition">  <div className="nutrition">
+            <div className="nutrition">
               <img src={nutritionFace} className="nutritionFace" style={{
                 float: 'right',
                 paddingTop: '220px',
@@ -147,7 +147,7 @@ class Dashboard extends React.Component {
               <div className='nutritiontext0'>Nutrition</div>
               <div className="nutritiontext">Key Nutrients: </div>
               {this.state.displayText && <div className='nutritiontextreg'>{this.state.displayText}</div>}
-            </div> </Link>
+            </div>
 
             <div className="mood">
 

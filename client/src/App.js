@@ -2,11 +2,12 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Calendar from "./components/Calender";
 import Nutrition from "./components/Nutrition";
-import NutritionOvul from "./components/NutritionOvul";
+import NutritionMens from "./components/NutritionMens";
 import Dashboard from "./components/Dashboard";
 import Welcome from "./components/Welcome";
 import DisplayData from "./components/DisplayData";
 import Login from "./components/Login"
+import NutritionOvul from "./components/NutritionOvul"
 // import OAuthRedirectHandler from "./components/OAuthRedirectHandler";
 
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -55,6 +56,7 @@ class App extends React.Component {
           <Route path="/calender" element={<Calendar />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/nutrition" element={<Nutrition />} />
+          <Route path="/nutritionmens" element={<NutritionMens />} />
           <Route path="/nutritionovul" element={<NutritionOvul />} />
           <Route path="/" element={<Welcome />} />
           <Route path="/display" element={<DisplayData />} />

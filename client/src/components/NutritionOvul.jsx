@@ -27,11 +27,11 @@ class Dashboard extends React.Component {
             <div className="date">Sunday March 12th, 2023 </div>
           </div>
           <div className = "nutriText">  Over the ovulation period, your oestrogen levels will rise and as a result, your body will need whole foods, rich with nutrients and antioxidants. Vitamin D and zinc become essential during this time, as these nutrients are crucial for reproductive health and can help regulate the menstrual cycle.</div>
+
           <Link to="https://www.twopeasandtheirpod.com/mediterranean-three-bean-quinoa-salad/" > <img src={lemonChicken} className="recipe" /> </Link>
-          
-          <img src={avocado} className="recipe" />
-          <img src={steak} className="recipe" />
-          <img src={quinoa} className="recipe" />
+          <Link to="https://www.seriouseats.com/avocado-toast-smoked-salmon-goat-cheese-capers" > <img src={avocado} className="recipe" /> </Link>
+          <Link to="https://iowagirleats.com/steak-and-sweet-potato-bowls-with-avocado-cilantro-drizzle/" > <img src={steak} className="recipe" /> </Link>
+          <Link to="https://www.twopeasandtheirpod.com/mediterranean-three-bean-quinoa-salad/" > <img src={quinoa} className="recipe" /> </Link>
         </div>
         <div className="content">
           <div className="box1">
@@ -58,11 +58,11 @@ class Dashboard extends React.Component {
             </p>
             <img src={navGuy} className="navguy" />
           </div>
-          
+
           <div className="box6">
-            <p className="overview">Overview</p>
-            <div className = "nutrition"></div>
-            <div className = "mood"></div>
+            <p className="overview" style={{ textAlign: 'center' }}>Overview</p>
+            <Link to="/nutrition"> <div className="nutrition"></div> </Link>
+            <div className="mood"></div>
             {/* <img src={mood} className="mood" />
             <p className="moodtext"> Mood </p>
             <img src={nutrition} className="nutrition" />

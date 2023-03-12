@@ -16,8 +16,6 @@ import lemonChicken from "./lemonChicken.svg";
 import avocado from "./avocado.svg";
 import steak from "./steak.svg";
 import quinoa from "./quinoa.svg";
-import nutritionFace from "./nutritionFace.svg";
-import moodFace from "./moodFace.svg";
 
 class Dashboard extends React.Component {
   render() {
@@ -26,9 +24,9 @@ class Dashboard extends React.Component {
         <div className="mainContent">
           <div className="topMenu" style={{ display: 'inline-flex', alignItems: 'center' }}>
             <div className="header">Nutrition </div>
-            <div className="date">Sunday March 12th, 2023 </div>
+            <div className="date">Saturday March 11th, 2023 </div>
           </div>
-          <div className = "nutriText"> </div>
+          <div className = "nutriText"> Your menstrual phase is time to rest and replenish. Your body is undergoing a controlled inflammatory response to shed your uterine lining, so nourishing yourself with nutrient-dense, anti-inflammatory and iron-replenishing foods is important.</div>
 
           <Link to="https://www.twopeasandtheirpod.com/mediterranean-three-bean-quinoa-salad/" > <img src={lemonChicken} className="recipe" /> </Link>
           <Link to="https://www.seriouseats.com/avocado-toast-smoked-salmon-goat-cheese-capers" > <img src={avocado} className="recipe" /> </Link>
@@ -63,18 +61,8 @@ class Dashboard extends React.Component {
 
           <div className="box6">
             <p className="overview" style={{ textAlign: 'center' }}>Overview</p>
-            <Link to="/nutrition"> <div className="nutrition">
-            <img src={nutritionFace} className="nutritionFace" style={{
-                float: 'right',
-                paddingTop: '220px',
-              }} /></div> </Link>
+            <Link to="/nutrition"> <div className="nutrition"></div> </Link>
             <div className="mood"></div>
-            <img src={moodFace} className="moodFace" style={{
-                float: 'right',
-                position: 'absolute',
-                top: '670px',
-                right: '50px'
-              }} />
             {/* <img src={mood} className="mood" />
             <p className="moodtext"> Mood </p>
             <img src={nutrition} className="nutrition" />
