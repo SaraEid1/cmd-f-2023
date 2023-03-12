@@ -5,6 +5,7 @@ import Dashboard from "./components/Dashboard";
 import Welcome from "./components/Welcome";
 import DisplayData from "./components/DisplayData";
 import Login from "./components/Login"
+// import OAuthRedirectHandler from "./components/OAuthRedirectHandler";
 
 import { BrowserRouter as Router } from 'react-router-dom';
 import "./App.css";
@@ -18,6 +19,8 @@ class App extends React.Component {
           <Route path="/" element={<Welcome />} />
           <Route path="/display" element={<DisplayData />} />
           <Route path="/login" element={<Login />} />
+          {/* <Route path="/auth" element={<OAuthRedirectHandler />} /> */}
+
 
         </Routes>
     );
