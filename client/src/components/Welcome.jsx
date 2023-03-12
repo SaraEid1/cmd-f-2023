@@ -14,10 +14,10 @@ class Welcome extends React.Component {
         {/* <Link to="/https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffitness.reproductive_health.read%20profile%20email%20openid&state=%7B%7D&response_type=code&client_id=173285732369-tefattcjqd7j9lmahul2qki4hsgjtbr8.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A1000%2Fdata" className="login"> Login </Link> */}
         <Link to="/login" className="login"> Login </Link>
         </div>
-        <div className="content">
-          <h1>your period your way</h1>
+        <div className="content" >
+          <h1 style = {{marginTop: '-20px'}}>your period your way</h1>
           
-          <p className="description">Morem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, Mauris consequat tellus id tempus aliquet. mattis tellus. Sed dignissim, metus nec fringilla accumsan, Mauris consequat tellus id tempus aliquet.</p>
+          <p className="description" style = {{marginTop: '-20px'}}>Although a period spans only a few days every month, our bodies undergo various hormonal, physical and emotional changes throughout the entire cycle. We noticed that most period trackers focus on what happens during the menstrual phase, but don't take into account what we can do to take care of our bodies in between each period. With dot. we hope to provide catered health and food recommendations and insights throughout the entire menstruation cycle, to help people who menstruate to better understand their bodies and take control of their periods.</p>
          <Link to="/dashboard"> <button> Get Started </button></Link>
 
         </div>
