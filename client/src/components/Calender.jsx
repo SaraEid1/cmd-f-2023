@@ -52,6 +52,7 @@ class Calendar extends React.Component {
   renderHeader() {
     const dateFormat = 'MMMM yyyy';
 
+
     return (
       <div className="header row flex-middle">
         <div className="col col-start">
@@ -124,7 +125,7 @@ class Calendar extends React.Component {
           <div
             className={`col cell ${!isSameMonth(day, monthStart)
               ? "disabled"
-              : isSameDay(day, selectedDate)
+              : ""
               ? "selected"
               : ""
             }`}
@@ -181,6 +182,8 @@ class Calendar extends React.Component {
   };
 
   render() {
+    const nutritionRoute = this.state.displayText.includes( 'Iron, Vitamin C and Magnesium') ? '/nutritionmens' : '/nutritionovul';
+
     const { currentMonth, selectedDate, startDates, ovulday, displayText, displayTextMood } = this.state;
 
     return (
@@ -229,12 +232,14 @@ class Calendar extends React.Component {
 
           <p className="overview" style={{ textAlign: 'center' }}>Overview</p>
 
-          <Link to="/nutrition"> <div className="nutrition">
+          <div className="nutrition">
 
             <div className='nutritiontext0'>Nutrition</div>
             <div className="nutritiontext">Key Nutrients: </div>
-            <Link to="/nutrition"> {displayText && <div className='nutritiontextreg'>{displayText}</div>} </Link>
-          </div> </Link>
+
+            
+            <Link to={nutritionRoute}> {displayText && <div className='nutritiontextreg'>{displayText}</div>} </Link>
+          </div>
           <div className="mood">
 
             <div className='symptomstext0'>Symptoms</div>
