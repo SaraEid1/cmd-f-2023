@@ -1,5 +1,5 @@
 import React from 'react';
-import { format, startOfWeek, addDays, startOfMonth, parseISO , endOfMonth, endOfWeek, isSameMonth, startOfDay, isSameDay, parse, addMonths, subMonths } from 'date-fns';
+import { format, startOfWeek, addDays, startOfMonth, parseISO, endOfMonth, endOfWeek, isSameMonth, startOfDay, isSameDay, parse, addMonths, subMonths } from 'date-fns';
 import { FaHome, FaCalendarAlt, FaUtensils, FaMapMarkerAlt, FaSignOutAlt } from 'react-icons/fa';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import './Calender.css';
@@ -10,6 +10,7 @@ import nutrition from "./nutritionWidget.svg";
 import symptoms from "./symptomsWidget.svg";
 
 class Calendar extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -17,26 +18,28 @@ class Calendar extends React.Component {
       selectedDate: new Date(),
       data: null,
       startDates: [],
-      ovulday: "0"
+      ovulday: "0",
+      displayText: null,
+      displayTextMood: null
     };
   }
   async componentDidMount() {
     try {
       const response = await fetch('http://localhost:1000/data');
       const json = await response.json();
-  
+
       const periods = json.Period;
       const cycleLength = json.cycleLength;
-      console.log (cycleLength)
-      const ovulday = (cycleLength/2).toString();;
+      console.log(cycleLength)
+      const ovulday = (cycleLength / 2).toString();;
       const startDates = Object.values(periods).map(period => period.startDate);
-  
-      this.setState({ data: json, periods, startDates, ovulday});
+
+      this.setState({ data: json, periods, startDates, ovulday });
     } catch (error) {
       console.error(error);
     }
   }
-  
+
   renderHeader() {
     const dateFormat = 'MMMM yyyy';
 
@@ -77,55 +80,55 @@ class Calendar extends React.Component {
 
   renderCells() {
     console.log("state", this.state.startDates);
-    console.log (this.state.ovulday)
-    const { currentMonth, selectedDate, startDates,ovulday } = this.state;
+    console.log(this.state.ovulday)
+    const { currentMonth, selectedDate, startDates, ovulday } = this.state;
     const monthStart = startOfMonth(currentMonth);
     const monthEnd = endOfMonth(monthStart);
     const startDate = startOfWeek(monthStart);
     const endDate = endOfWeek(monthEnd);
-  
+
     const dateFormat = "d";
     const rows = [];
-  
+
     let days = [];
     let day = startDate;
     let formattedDate = "";
-  
+
     console.log("startDates", startDates);
-  
-      // Calculate ovulation date
+
+    // Calculate ovulation date
     const ovulDate = addDays(startOfMonth(currentMonth), ovulday - 1);
     while (day <= endDate) {
       for (let i = 0; i < 7; i++) {
         formattedDate = format(day, dateFormat);
-  
+
         const isPeriodDate = this.state.startDates.some((period) => {
           const periodDate = new Date(period);
           const periodDay = format(periodDate, "dd");
           const currentDay = format(day, "dd");
           return periodDay === currentDay;
         });
-  
+
         //console.log('formattedDate:', formattedDate, 'isPeriodDate:', isPeriodDate, 'day:', day);
         console.log(format(day, "dd") === ovulday);
 
         const isOvulDay =
-        isSameDay(day, ovulDate) ||
-        isSameDay(day, addDays(ovulDate, 1)) ||
-        isSameDay(day, addDays(ovulDate, 2)) ||
-        isSameDay(day, addDays(ovulDate, 3));
+          isSameDay(day, ovulDate) ||
+          isSameDay(day, addDays(ovulDate, 1)) ||
+          isSameDay(day, addDays(ovulDate, 2)) ||
+          isSameDay(day, addDays(ovulDate, 3));
 
         days.push(
           <div
-            className={`col cell ${
-              !isSameMonth(day, monthStart)
+            className={`col cell ${!isSameMonth(day, monthStart)
                 ? "disabled"
                 : isSameDay(day, selectedDate)
-                ? "selected"
-                : ""
-            }`}
+                  ? "selected"
+                  : ""
+              }`}
             key={day}
-            onClick={() => this.onDateClick(day)}
+            onClick={(event) => this.onDateClick(day, event)}
+
           >
             <span className="number">{formattedDate}</span>
             {isPeriodDate && <div className="rectangle"></div>}
@@ -143,17 +146,26 @@ class Calendar extends React.Component {
     }
     return <div className="body">{rows}</div>;
   }
-  
-  
-  
-  
 
 
-  onDateClick = (day) => {
+  onDateClick = (day, event) => {
+    const targetClassList = event.target.classList;
+    if (targetClassList.contains("rectangle")) {
+      this.setState({ displayText: " Key Nutrients: Iron, Vitamin C and Magnesium" });
+      this.setState({ displayTextMood: " cramps, bloating, tender breasts, mood swings, irritability, headaches, tiredness, lower back pain" });
+    } else if (targetClassList.contains("green")) {
+      this.setState({ displayText: "Key Nutrients: Vitamin D and Zinc" });
+      this.setState({ displayTextMood: " " });
+    } else {
+      this.setState({ displayText: "" }); // clear the text if neither condition is met
+      this.setState({ displayTextMood: "" });
+    }
     this.setState({
       selectedDate: day,
     });
   };
+
+
 
   nextMonth = () => {
     this.setState({
@@ -168,39 +180,43 @@ class Calendar extends React.Component {
   };
 
   render() {
-    return (
-      <div className="calendar">
-        <div className="box1">
-            <img src={dotLogoWhite} className="logo" />
-            <h2>dot</h2>
-            <div id="circle">  </div>
-            <p className="name"> Jane Doe </p>
+    const { currentMonth, selectedDate, startDates, ovulday, displayText, displayTextMood } = this.state;
 
-            <p id="nav">
-              <span style={{ display: 'inline-flex', alignItems: 'center', paddingLeft: '20px' }}>
-                <FaHome style={{ marginRight: '20px' }} />
-                <Link to="/dashboard" > Dashboard </Link>
-              </span>
-              
-              <div className="selected">
-              <span style={{ display: 'inline-flex', alignItems: 'center'}}>
+    return (
+
+      <div className="calendar">
+
+        <div className="box1">
+          <img src={dotLogoWhite} className="logo" />
+          <h2>dot</h2>
+          <div id="circle">  </div>
+          <p className="name"> Jane Doe </p>
+
+          <p id="nav">
+            <span style={{ display: 'inline-flex', alignItems: 'center', paddingLeft: '20px' }}>
+              <FaHome style={{ marginRight: '20px' }} />
+              <Link to="/dashboard" > Dashboard </Link>
+            </span>
+
+            <div className="selected">
+              <span style={{ display: 'inline-flex', alignItems: 'center' }}>
                 <FaCalendarAlt style={{ marginRight: '20px' }} />
                 <Link to="/calender"> Calendar </Link>
               </span>
-              </div>
-              <span style={{ display: 'inline-flex', alignItems: 'center', paddingLeft: '20px'  }}>
-                  <FaUtensils style={{ marginRight: '20px' }} />
-                  <Link to="/nutrition"> Nutrition </Link>
-                </span>
-            </p>
-            {/* <p className="icons">
+            </div>
+            <span style={{ display: 'inline-flex', alignItems: 'center', paddingLeft: '20px' }}>
+              <FaUtensils style={{ marginRight: '20px' }} />
+              <Link to="/nutrition"> Nutrition </Link>
+            </span>
+          </p>
+          {/* <p className="icons">
               <FaHome />
               <FaCalendarAlt />
               <FaUtensils />
               <FaMapMarkerAlt />
             </p> */}
-            <img src={navGuy} className="navguy" />
-          </div>
+          <img src={navGuy} className="navguy" />
+        </div>
         <div></div>
         <div className="right">
           {this.renderHeader()}
@@ -209,15 +225,25 @@ class Calendar extends React.Component {
         </div>
         <div className="box6">
 
-            <p className="overview">Today's Overview</p>
-            <div className = "nutrition"></div>
-            <div className = "mood"></div>
-            {/* <img src={mood} className="mood" />
+          <p className="overview">Today's Overview</p>
+          <div className="nutrition">
+
+            <div className='nutritiontext0'>Nutrition</div>
+            <Link to="/nutrition"> {displayText && <div className='nutritiontext'>{displayText}</div>} </Link>
+          </div>
+          <div className="mood">
+
+            <div className='symptomstext0'>Symptoms</div>
+            {displayTextMood && <div className='symptomstext'>{displayTextMood}</div>}
+          </div>
+        {/* <img src={mood} className="mood" />
             <p className="moodtext"> Mood </p>
             <img src={nutrition} className="nutrition" />
             <p className="nutritext"> Nutrition </p> */}
-          </div>
+
+
       </div>
+      </div >
     );
   }
 }

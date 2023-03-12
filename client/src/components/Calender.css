@@ -77,4 +77,42 @@ color: #FFFFFF;
     background-color: #8DDFC7; /* change the color as desired */
     opacity: 0.5; /* adjust the opacity as desired */
   }
+
+  .nutritiontext0{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 21.0736px;
+    color: #FFFFFF;
+    padding-left: 7px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .nutritiontext{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 14.0736px;
+    color: #FFFFFF;
+    padding-left: 7px;
+  }
   
+
+  .symptomstext0{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 21.0736px;
+    color: #FFFFFF;
+    padding-left: 7px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .symptomstext{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 14.0736px;
+    color: #FFFFFF;
+    padding-left: 7px;
+  }
