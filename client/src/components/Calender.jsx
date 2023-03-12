@@ -1,5 +1,5 @@
 import React from 'react';
-import { format, startOfWeek, addDays, startOfMonth, endOfMonth, endOfWeek, isSameMonth, isSameDay, parse, addMonths, subMonths } from 'date-fns';
+import { format, startOfWeek, addDays, startOfMonth, parseISO , endOfMonth, endOfWeek, isSameMonth, startOfDay, isSameDay, parse, addMonths, subMonths } from 'date-fns';
 import { FaHome, FaCalendarAlt, FaUtensils, FaMapMarkerAlt, FaSignOutAlt } from 'react-icons/fa';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import './Calender.css';
@@ -12,6 +12,7 @@ class Calendar extends React.Component {
       currentMonth: new Date(),
       selectedDate: new Date(),
       data: null,
+      startDates: []
     };
   }
   async componentDidMount() {
@@ -19,27 +20,15 @@ class Calendar extends React.Component {
       const response = await fetch('http://localhost:1000/data');
       const json = await response.json();
   
-      this.setState({ data: json }, () => {
-        const periods = this.state.data.Period;
-        //console.log(periods);
-        const periodsarray = Object.values(periods);
-        for (let i = 0; i < periodsarray.length; i++) {
-          const startDate = periodsarray[i].startDate;
-          const endDate = periodsarray[i].endDate;
-          const flow = periodsarray[i].flow;
-          //console.log(startDate, flow);
-        }
-        this.setState({ periods }, () => {
-          //console.log(this.state.periods);
-        }); 
-      });
+      const periods = json.Period;
+      const startDates = Object.values(periods).map(period => period.startDate);
+  
+      this.setState({ data: json, periods, startDates });
     } catch (error) {
       console.error(error);
     }
   }
   
-  
-
   renderHeader() {
     const dateFormat = 'MMMM yyyy';
 
@@ -76,41 +65,63 @@ class Calendar extends React.Component {
 
     return <div className="days row">{days}</div>;
   }
-
   renderCells() {
-    console.log ("hello")
-    console.log(this.state.periods);
-    const { currentMonth, selectedDate } = this.state;
+    console.log("state", this.state.startDates);
+    const { currentMonth, selectedDate, startDates } = this.state;
     const monthStart = startOfMonth(currentMonth);
     const monthEnd = endOfMonth(monthStart);
     const startDate = startOfWeek(monthStart);
     const endDate = endOfWeek(monthEnd);
-
-    const dateFormat = 'd';
+  
+    const dateFormat = "d";
     const rows = [];
-
+  
     let days = [];
     let day = startDate;
-    let formattedDate = '';
-
+    let formattedDate = "";
+  
+    console.log("startDates", startDates);
+  
     while (day <= endDate) {
       for (let i = 0; i < 7; i++) {
         formattedDate = format(day, dateFormat);
-        const cloneDay = day;
+
+       /* const periods1 = [
+          "Wed, 01 Feb 2023 08:00:00 GMT",
+          "Thu, 02 Feb 2023 08:00:00 GMT",
+          "Fri, 03 Feb 2023 08:00:00 GMT",
+          "Sat, 04 Feb 2023 08:00:00 GMT",
+          "Sun, 05 Feb 2023 08:00:00 GMT",
+          "Fri, 03 Mar 2023 08:00:00 GMT",
+          "Sat, 04 Mar 2023 08:00:00 GMT",
+          "Sun, 05 Mar 2023 08:00:00 GMT",
+          "Mon, 06 Mar 2023 08:00:00 GMT",
+          "Tue, 07 Mar 2023 08:00:00 GMT"
+        ];*/
+  
+        const isPeriodDate = this.state.startDates.some((period) => {
+          const periodDate = new Date(period);
+          const periodDay = format(periodDate, "dd");
+          const currentDay = format(day, "dd");
+          return periodDay === currentDay;
+        });
+  
+        //console.log('formattedDate:', formattedDate, 'isPeriodDate:', isPeriodDate, 'day:', day);
+  
         days.push(
           <div
             className={`col cell ${
               !isSameMonth(day, monthStart)
-                ? 'disabled'
+                ? "disabled"
                 : isSameDay(day, selectedDate)
-                ? 'selected'
-                : ''
+                ? "selected"
+                : ""
             }`}
             key={day}
-            onClick={() => this.onDateClick(parse(cloneDay))}
+            onClick={() => this.onDateClick(day)}
           >
             <span className="number">{formattedDate}</span>
-            <span className="bg">{formattedDate}</span>
+            {isPeriodDate && <div className="rectangle"></div>}
           </div>
         );
         day = addDays(day, 1);
@@ -124,6 +135,11 @@ class Calendar extends React.Component {
     }
     return <div className="body">{rows}</div>;
   }
+  
+  
+  
+  
+
 
   onDateClick = (day) => {
     this.setState({
