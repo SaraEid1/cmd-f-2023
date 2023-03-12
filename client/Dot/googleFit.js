@@ -177,10 +177,11 @@ app.get("/data", async (req, res) => {
       dateData[dates[d]] = nestedDict;
     }
     mainDict["PredictedPeriod"] = dateData;
-    
-    const jsonData = JSON.stringify(mainDict);
+    mainDict["cycleLength"] = cycleLength;
+    mainDict["periodLength"] = periodLength;
+    mainDict["lastPeriod"] = lastPeriodStart;
 
-    // Write the JSON data to a file
+    let jsonData = JSON.stringify(mainDict);
     fs.writeFileSync('data.json', jsonData);
 
   } catch (e) {

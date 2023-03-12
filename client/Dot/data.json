@@ -72,5 +72,8 @@
             "startDate": "Thu, 06 Apr 2023 08:00:00 GMT",
             "endDate": "Thu, 06 Apr 2023 08:00:00 GMT"
         }
-    }
+    },
+    "cycleLength": 30,
+    "periodLength": 5,
+    "lastPeriod": "Fri, 03 Mar 2023 08:00:00 GMT"
 }
