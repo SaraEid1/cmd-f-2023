@@ -99,7 +99,13 @@ class Dashboard extends React.Component {
                 </div>
               </div>
             </div>
+            
           </div>
+          <div className="box10">
+              <img src={dashboardGuy} className="dashboardguy" />
+              <div className="hello" >Feminine Hygiene Products Near Your</div>
+              <div className="regtext" style={{ width: '350px' }}>insert list here</div>
+            </div>
         </div>
         <div className="content">
           <div className="box1">

@@ -29,7 +29,7 @@ class Dashboard extends React.Component {
           <div className = "nutriText"> Your menstrual phase is time to rest and replenish. Your body is undergoing a controlled inflammatory response to shed your uterine lining, so nourishing yourself with nutrient-dense, anti-inflammatory and iron-replenishing foods is important.</div>
           <div className = "nutriText">Your menstrual phase is time to rest and replenish. Your body is undergoing a controlled inflammatory response to shed your uterine lining, so nourishing yourself with nutrient-dense, anti-inflammatory and iron-replenishing foods is important. 
 </div>
-          <Link to="https://www.twopeasandtheirpod.com/mediterranean-three-bean-quinoa-salad/" > <img src={lemonChicken} className="recipe" /> </Link>
+          <Link to="https://www.foodnetwork.com/recipes/food-network-kitchen/lemon-pepper-roast-chicken-recipe-2268957" > <img src={lemonChicken} className="recipe" /> </Link>
           <Link to="https://www.seriouseats.com/avocado-toast-smoked-salmon-goat-cheese-capers" > <img src={avocado} className="recipe" /> </Link>
           <Link to="https://iowagirleats.com/steak-and-sweet-potato-bowls-with-avocado-cilantro-drizzle/" > <img src={steak} className="recipe" /> </Link>
           <Link to="https://www.twopeasandtheirpod.com/mediterranean-three-bean-quinoa-salad/" > <img src={quinoa} className="recipe" /> </Link>
