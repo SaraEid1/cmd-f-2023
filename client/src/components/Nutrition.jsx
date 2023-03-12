@@ -58,11 +58,11 @@ class Dashboard extends React.Component {
             </p>
             <img src={navGuy} className="navguy" />
           </div>
-          
+
           <div className="box6">
             <p className="overview">Today's Overview</p>
             <Link to="/nutrition"> <div className="nutrition"></div> </Link>
-            <div className = "mood"></div>
+            <div className="mood"></div>
             {/* <img src={mood} className="mood" />
             <p className="moodtext"> Mood </p>
             <img src={nutrition} className="nutrition" />
