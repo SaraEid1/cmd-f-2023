@@ -12,6 +12,8 @@ import nutrition from "./nutritionWidget.svg";
 import symptoms from "./symptomsWidget.svg";
 import navGuy from "./navbarGuy.svg";
 import profile from "./profile.svg";
+import Map from "./Map";
+
 import nutritionFace from "./nutritionFace.svg";
 import moodFace from "./moodFace.svg";
 
@@ -106,10 +108,10 @@ class Dashboard extends React.Component {
 
           </div>
           <div className="box10">
-            <img src={dashboardGuy} className="dashboardguy" />
-            <div className="hello" >Feminine Hygiene Products Near Your</div>
-            <div className="regtext" style={{ width: '350px' }}>insert list here</div>
-          </div>
+              <img src={dashboardGuy} className="dashboardguy" />
+              <div className="hello" >Feminine Hygiene Products Near Your</div>
+              <div>{<Map/>}</div>
+            </div>
         </div>
         <div className="content">
           <div className="box1">
