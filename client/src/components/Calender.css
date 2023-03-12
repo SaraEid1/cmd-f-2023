@@ -139,6 +139,15 @@
   font-size: 14.0736px;
   color: #ffffff;
   padding-left: 7px;
+  text-decoration: none !important;
+}
+
+.link {
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
 }
 
 .symptomstext0 {
