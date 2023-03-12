@@ -29,7 +29,9 @@ class Dashboard extends React.Component {
       cycleLength: "0",
       daysSinceLastPeriod: "0",
       daysUntilNextPeriod: "0",
-      daysinCycle: "0"
+      daysinCycle: "0",
+      displayText: "Omega-3 Fatty Acids and Fibre",
+      displayTextMood: "increased energy levels, more focus, slight increase in body temperature"
     };
   }
 
@@ -61,7 +63,7 @@ class Dashboard extends React.Component {
         <div className="mainContent">
           <div className="topMenu" style={{ display: 'inline-flex', alignItems: 'center' }}>
             <div className="header">Dashboard </div>
-            <div className="date">Saturday March 11th, 2023 </div>
+            <div className="date">Sunday March 12th, 2023 </div>
           </div>
           <div className="box2">
             <img src={dashboardGuy} className="dashboardguy" />
@@ -136,14 +138,28 @@ class Dashboard extends React.Component {
 
           <div className="box6">
 
-            <p className="overview">Today's Overview</p>
-            <Link to="/nutrition"> <div className="nutrition"></div> </Link>
-            <div className="mood"></div>
-            {/* <img src={mood} className="mood" />
-            <p className="moodtext"> Mood </p>
-            <img src={nutrition} className="nutrition" />
-            <p className="nutritext"> Nutrition </p> */}
-          </div>
+<p className="overview" style={{ textAlign: 'center' }}>Overview</p>
+
+ <div className="nutrition">
+
+  <div className='nutritiontext0'>Nutrition</div>
+  <div className="nutritiontext">Key Nutrients: </div>
+   {this.state.displayText && <div className='nutritiontextreg'>{this.state.displayText}</div>} 
+</div>
+<div className="mood">
+
+  <div className='symptomstext0'>Symptoms</div>
+  {this.state.displayTextMood && <div className='nutritiontextreg'>{this.state.displayTextMood}</div>}
+</div>
+{/* <img src={mood} className="mood" />
+  <p className="moodtext"> Mood </p>
+  <img src={nutrition} className="nutrition" />
+  <p className="nutritext"> Nutrition </p> */}
+
+
+</div>
+
+
         </div>
       </div>
     );

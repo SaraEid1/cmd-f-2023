@@ -24,7 +24,7 @@ class Dashboard extends React.Component {
         <div className="mainContent">
           <div className="topMenu" style={{ display: 'inline-flex', alignItems: 'center' }}>
             <div className="header">Nutrition </div>
-            <div className="date">Saturday March 11th, 2023 </div>
+            <div className="date">Sunday March 12th, 2023 </div>
           </div>
           <div className = "nutriText">  Over the ovulation period, your oestrogen levels will rise and as a result, your body will need whole foods, rich with nutrients and antioxidants. Vitamin D and zinc become essential during this time, as these nutrients are crucial for reproductive health and can help regulate the menstrual cycle.</div>
           <Link to="https://www.twopeasandtheirpod.com/mediterranean-three-bean-quinoa-salad/" > <img src={lemonChicken} className="recipe" /> </Link>
@@ -60,7 +60,7 @@ class Dashboard extends React.Component {
           </div>
           
           <div className="box6">
-            <p className="overview">Today's Overview</p>
+            <p className="overview">Overview</p>
             <div className = "nutrition"></div>
             <div className = "mood"></div>
             {/* <img src={mood} className="mood" />
