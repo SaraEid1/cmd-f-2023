@@ -1,71 +1,159 @@
-.calendar{
-    display: flex;
-    height: 100vh;}
+.calendar {
+  display: flex;
+  border: none !important;
+}
 .left {
-    position: absolute;
-    width: 269px;
-    height: 960px;
-    left: 2px;
-    top: 4px;
-    
-    background: #000000;
-    border-radius: 0px 21.0736px 21.0736px 0px;
-    display: flex;
+  position: absolute;
+  width: 269px;
+  left: 2px;
+  top: 4px;
+
+  background: #000000;
+  border-radius: 0px 21.0736px 21.0736px 0px;
+  display: flex;
   justify-content: center;
   align-items: center;
-  }
+}
 
-  .logo{
-    background-size: 50px 50px; /* set the size of the background image */
-    width: 60px;
-    height: 60px;
+.logo {
+  background-size: 50px 50px; /* set the size of the background image */
+  width: 60px;
+  height: 60px;
 
-    position: absolute;
-left: 5%;
-right: 0%;
-top: 0%;
-bottom: 0.97%;
+  position: absolute;
+  left: 5%;
+  right: 0%;
+  top: 0%;
+  bottom: 0.97%;
 
-font-family: 'Inter';
-font-style: normal;
-font-weight: 900;
-font-size: 36.6872px;
-line-height: 44px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 36.6872px;
+  line-height: 44px;
 
-color: #FFFFFF;
+  color: #ffffff;
+}
 
-  }
+.mainContent {
+  position: absolute;
+  height: 100%;
+  left: 300px;
+  right: 300px;
+  padding: 100px;
+  top: 0px;
+}
 
-  .right{
-    width: 920px;
-    height: 900px;
-    top: 200px;
-    float: right;
-  }
+.topMenu {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  padding-bottom: 50px;
+}
 
-  .name1{
-    position: absolute;
-    left: 38%;
-    right: 33.78%;
-    top: 24%;
-    bottom: 68.1%;
-    
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 900;
-    font-size: 21.0736px;
-    line-height: 271.02%;
-    /* or 57px */
-    
-    
-    color: #FFFFFF;
-  }
+.header2 {
+  font-weight: 900;
+  font-size: 30px;
+  line-height: 36px;
+  color: #000000;
+  text-align: left;
+}
 
-  .rectangle {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: red; /* change the color as desired */
-    opacity: 0.5; /* adjust the opacity as desired */
-  }
-  
+.date {
+  text-align: right;
+  margin-left: auto;
+  color: black;
+}
+
+.right {
+  width: 100%;
+  top: 200px;
+  float: left;
+  padding: 20px 50px;
+  margin-bottom: 100px;
+  background: rgba(255, 255, 255, 0.4);
+  border: 3px solid #ffffff;
+  border-radius: 20px;
+  border: 2px white solid;
+}
+
+.name1 {
+  position: absolute;
+  left: 38%;
+  right: 33.78%;
+  top: 24%;
+  bottom: 68.1%;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 21.0736px;
+  line-height: 271.02%;
+  /* or 57px */
+
+  color: #ffffff;
+}
+
+.rectangle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: red; /* change the color as desired */
+  opacity: 0.5; /* adjust the opacity as desired */
+}
+
+.green {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  background-color: #8ddfc7; /* change the color as desired */
+  opacity: 0.5; /* adjust the opacity as desired */
+}
+
+.nutritiontext0 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 21.0736px;
+  color: #ffffff;
+  padding-left: 7px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.nutritiontext {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 14.0736px;
+  color: #ffffff;
+  padding-left: 7px;
+}
+
+.nutritiontextreg {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14.0736px;
+  color: #ffffff;
+  padding-left: 7px;
+}
+
+.symptomstext0 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 21.0736px;
+  color: #ffffff;
+  padding-left: 7px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.symptomstext {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 14.0736px;
+  color: #ffffff;
+  padding-left: 7px;
+}

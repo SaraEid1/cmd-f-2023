@@ -1,4 +1,7 @@
+import { from } from 'form-data';
 import React, { Component } from 'react';
+import './Dashboard'
+
 
 class Map extends Component {
     constructor(props) {
@@ -18,7 +21,14 @@ class Map extends Component {
         fetch('http://localhost:1002')
             .then(res => res.json())
             .then(data => {
+                const infowindow = new window.google.maps.InfoWindow();
+
                 const markers = data.map(result => {
+                    const contentString = `<div>
+                <h3>${result.name}</h3>
+                <p1 >${result.vicinity}</p1>
+                <a href="https://www.google.com/maps/search/?api=1&query=${result.vicinity}" target="_blank" rel="noopener noreferrer"> <br> View on Google Maps</a>
+              </div>`;
                     const marker = new window.google.maps.Marker({
                         position: {
                             lat: result.geometry.location.lat,
@@ -27,15 +37,15 @@ class Map extends Component {
                         map,
                         title: result.name,
                     });
+                    marker.addListener('click', () => {
+                        infowindow.setContent(contentString);
+                        infowindow.open(map, marker);
+                    });
                     return marker;
                 });
 
-                const drugstores = data.map(result => ({
-                    name: result.name,
-                    url: `https://www.google.com/maps/search/?api=1&query=${result.vicinity}`,
-                }));
-
-                this.setState({ markers, drugstores });
+                this.setState({ markers });
+                console.log(markers)
             })
             .catch(err => console.error(err));
     }
@@ -44,16 +54,22 @@ class Map extends Component {
         const { drugstores } = this.state;
 
         return (
-            <div>
-                <div id="map" style={{ height: '100%', width: '100%' }} />
+            <div className="box11"
 
-                <ul>
-                    {drugstores.map((drugstore, index) => (
-                        <li key={index}>
-                            <a href={drugstore.url} target="_blank" rel="noopener noreferrer">{drugstore.name}</a>
-                        </li>
-                    ))}
-                </ul>
+                style={{
+                    // position:'absolute',
+                    width: '100%',
+                    height: '800px',
+                    // left: '10%',
+                    // rightMargin: '330.69px',
+                    borderRight: '20%',
+
+                    top: '132.35px',
+                    background: '2px',
+
+                }}
+            >
+                <div id="map" style={{ height: '100%', width: '100%' }} />
             </div>
         );
     }

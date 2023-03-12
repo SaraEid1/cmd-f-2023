@@ -1,245 +1,242 @@
 .welcome-page {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #b0b0b0;
-    position: absolute;
-width: 1200px;
-height: 1850px;
-left: 0px;
-top: 0px;
-
-background: rgba(255, 255, 255, 0.01);
-backdrop-filter: blur(130.208px);
-  }
-
-  header {
-    position: relative;
-    left: 120px;
-  }
-
-  .content {
-    text-align: center;
-    z-index: 1;
-    
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #b0b0b0;
+  position: absolute;
+  width: 100%;
+  height: 900px;
+  left: 0px;
+  top: 0px;
   
-  h1 {
-    position: absolute;
-    width: 863px;
-    height: 97px;
-    left: 288px;
-    top: 302px;
-    
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 900;
-    font-size: 80px;
-    line-height: 97px;
-    /* identical to box height */
-    
-    text-align: center;
-    
-    color: #000000;
-    position: absolute;
-    left: 50%; /* Set the horizontal position to the middle of the parent element */
-    transform: translateX(-50%); /* Center the element by moving it back by half its own width */
-  }
-
-  h2{
-    position: absolute;
-width: 80px;
-height: 48px;
-left: 95px;
-top: 82px;
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 900;
-font-size: 40px;
-line-height: 48px;
-text-align: center;
-
-color: #000000;
-  }
-  
-  p {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-  }
-  
-  button {
-    position: absolute;
-    width: 210px;
-    height: 48px;
-    left: 615px;
-    top: 492px;
-    
-    background: #000000;
-    border-radius: 66px;
-    font-family: 'Inter';
-font-style: normal;
-font-weight: 900;
-font-size: 20px;
-line-height: 24px;
-text-align: center;
-color: white;
-position: absolute;
-  left: 50%; /* Set the horizontal position to the middle of the parent element */
-  transform: translateX(-50%); /* Center the element by moving it back by half its own width */
-  }
-
-
-  
-  button:hover {
-  }
-  
-
- .welcome-box1{
-
-    box-sizing: border-box;
-
-    width: 328px;
-    height: 358px;
-    
-    background: rgba(255, 255, 255, 0.6);
-    border: 5px solid #FFFFFF;
-    border-radius: 20px;
-    
-    /* Inside auto layout */
-    
-    flex: none;
-    order: 0;
-    flex-grow: 0;
- }
- 
- .welcome-box2{
-    box-sizing: border-box;
-
-width: 328px;
-height: 358px;
-
-background: rgba(255, 255, 255, 0.6);
-border: 5px solid #FFFFFF;
-border-radius: 20px;
-
-/* Inside auto layout */
-
-flex: none;
-order: 1;
-flex-grow: 0;
- }
-
-.welcome-box3{
-    box-sizing: border-box;
-
-width: 328px;
-height: 358px;
-
-background: rgba(255, 255, 255, 0.6);
-border: 5px solid #FFFFFF;
-border-radius: 20px;
-
-/* Inside auto layout */
-
-flex: none;
-order: 2;
-flex-grow: 0;
+  background: rgba(255, 255, 255, 0.01);
+  backdrop-filter: blur(130.208px);
+  background-image: url("./welcome.png");
 }
 
- .description{
-    position: absolute;
-width: 625px;
-height: 102px;
-left: 407px;
-top: 630px;
+header {
+  position: relative;
+  left: 120px;
+  background-color: red !important;
+}
 
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 12px;
-line-height: 142.52%;
-/* or 17px */
+.content {
+  text-align: center;
+  z-index: 1;
+}
 
-text-align: center;
+h1 {
+  position: absolute;
+  width: 863px;
+  height: 97px;
+  left: 288px;
+  top: 302px;
 
-color: #000000;
- }
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 80px;
+  line-height: 97px;
+  /* identical to box height */
 
- .features{
-    position: absolute;
-    width: 86px;
-    height: 24px;
-    left: 700px;
-    top: 97px;
-    
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 24px;
-    text-align: center;
-    
-    color: #000000;
-    
- }
+  text-align: center;
 
- .aboutus{
-    position: absolute;
-    width: 91px;
-    height: 24px;
-    left: 868px;
-    top: 97px;
-    
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 24px;
-    text-align: center;
-    
-    color: #000000;
- }
+  color: #000000;
+  position: absolute;
+  left: 50%; /* Set the horizontal position to the middle of the parent element */
+  transform: translateX(
+    -50%
+  ); /* Center the element by moving it back by half its own width */
+}
 
+h2 {
+  position: absolute;
+  width: 80px;
+  height: 48px;
+  left: 95px;
+  top: 82px;
 
- .loginspan{
-    position: absolute;
-width: 176px;
-height: 48px;
-left: 1030px;
-top: 82px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 40px;
+  line-height: 48px;
+  text-align: center;
 
-background: #000000;
-border-radius: 66px;
- }
- .login{
-    position: absolute;
-    width: 56px;
-    height: 24px;
-    left: 1090px;
-    top: 94px;
-    
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 900;
-    font-size: 20px;
-    line-height: 24px;
-    text-align: center;
-    text-decoration: none;
-    
-    color: #FFFFFF;
-    
- }
- .logo{
-    background-size: 50px 50px; /* set the size of the background image */
-    width: 90px;
-    height: 90px;
+  color: #000000;
+}
 
-    position: absolute;
-left: 5%;
-right: 0%;
-top: 2.4%;
-bottom: 0.97%;
- }
+p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+button {
+  position: absolute;
+  width: 210px;
+  height: 48px;
+  left: 615px;
+  top: 492px;
+
+  background: #000000;
+  border-radius: 66px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  color: white;
+  position: absolute;
+  left: 50%; /* Set the horizontal position to the middle of the parent element */
+  transform: translateX(
+    -50%
+  ); /* Center the element by moving it back by half its own width */
+}
+
+button:hover {
+}
+
+.welcome-box1 {
+  box-sizing: border-box;
+
+  width: 328px;
+  height: 358px;
+
+  background: rgba(255, 255, 255, 0.6);
+  border: 5px solid #ffffff;
+  border-radius: 20px;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.welcome-box2 {
+  box-sizing: border-box;
+
+  width: 328px;
+  height: 358px;
+
+  background: rgba(255, 255, 255, 0.6);
+  border: 5px solid #ffffff;
+  border-radius: 20px;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.welcome-box3 {
+  box-sizing: border-box;
+
+  width: 328px;
+  height: 358px;
+
+  background: rgba(255, 255, 255, 0.6);
+  border: 5px solid #ffffff;
+  border-radius: 20px;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+}
+
+.description {
+  position: absolute;
+  width: 625px;
+  height: 102px;
+  left: 407px;
+  top: 630px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 142.52%;
+  /* or 17px */
+
+  text-align: center;
+
+  color: #000000;
+}
+
+.features {
+  position: absolute;
+  width: 86px;
+  height: 24px;
+  left: 700px;
+  top: 97px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+
+  color: #000000;
+}
+
+.aboutus {
+  position: absolute;
+  width: 91px;
+  height: 24px;
+  left: 868px;
+  top: 97px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+
+  color: #000000;
+}
+
+.loginspan {
+  position: absolute;
+  width: 176px;
+  height: 48px;
+  left: 1030px;
+  top: 82px;
+
+  background: #000000;
+  border-radius: 66px;
+}
+.login {
+  position: absolute;
+  width: 56px;
+  height: 24px;
+  left: 1090px;
+  top: 94px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  text-decoration: none;
+
+  color: #ffffff;
+}
+.logo {
+  background-size: 50px 50px; /* set the size of the background image */
+  width: 110px;
+  height: 110px;
+
+  position: absolute;
+  left: 5%;
+  right: 0%;
+  top: 5%;
+  bottom: 0.97%;
+}
